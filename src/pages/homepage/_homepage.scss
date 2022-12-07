@@ -1,0 +1,32 @@
+@import "../../style/utils";
+
+.homepage_main {
+  h1 {
+    color: map-get($colors, logoBlue);
+    font-size: map-get($sizes, xl);
+    padding: 0px 10%;
+    margin-bottom: 50px;
+    @include responsiveTabloids {
+      color: map-get($colors, logoBlue);
+      font-size: map-get($sizes, l);
+      padding: 0px 4%;
+      margin-bottom: 1rem;
+    }
+  }
+  img {
+    width: 80%;
+    height: 100px;
+    object-fit: contain;
+    @include responsiveTabloids {
+      width: 50%;
+    }
+  }
+  .icon-tool {
+    font-size: 15rem;
+    margin-bottom: 5rem;
+    @include responsiveTabloids {
+      font-size: 10rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

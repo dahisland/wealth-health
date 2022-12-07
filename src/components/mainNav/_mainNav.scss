@@ -1,0 +1,62 @@
+@import "../../style/utils";
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include responsiveTabloids {
+    flex-direction: column;
+  }
+  img {
+    width: 200px;
+  }
+}
+
+.pageHeader_mainNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 5px;
+  @include responsiveTabloids {
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+    background-color: map-get($colors, lightmouse);
+  }
+
+  a {
+    width: 212px;
+    border-bottom: 3px solid transparent;
+    padding: 25px 25px;
+    margin-left: 3px;
+    text-decoration: none;
+    font-size: map-get($sizes, m);
+    border-radius: 5px;
+  }
+
+  .mainNav_link {
+    color: map-get($colors, logoBlue);
+    background-color: map-get($colors, ice);
+    transition: all 700ms;
+    @include responsiveTabloids {
+      box-shadow: 2px 3px 5px map-get($colors, logoBlue);
+      background-color: map-get($colors, ice);
+    }
+    &:hover {
+      color: map-get($colors, logoBlue);
+      background-color: map-get($colors, lightmouse);
+      border-bottom: 3px solid map-get($colors, logoBlue);
+      @include responsiveTabloids {
+        color: map-get($colors, ice);
+        background-color: map-get($colors, logoGrey);
+        border-bottom: 3px solid map-get($colors, ice);
+        box-shadow: 2px 3px 5px map-get($colors, logoGrey);
+      }
+    }
+  }
+  .mainNav_link--active {
+    color: map-get($colors, ice);
+    background-color: map-get($colors, logoBlue);
+    box-shadow: inset 0px 0px 10px 0px map-get($colors, ice);
+  }
+}

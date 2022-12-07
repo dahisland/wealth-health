@@ -1,0 +1,36 @@
+@import "./utils";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: map-get($colors, logoGrey);
+  @include fontFamily;
+  font-size: 16px;
+}
+
+body {
+  @include resetMargin;
+  position: relative;
+}
+
+.currentPage {
+  @include defaultMargin;
+  text-align: center;
+  font-size: map-get($sizes, base);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @include responsiveTabloids {
+    padding: 10px 0px 0px 0px;
+  }
+}
+
+main {
+  padding-top: 40px;
+  flex-grow: 1;
+  @include responsiveTabloids {
+    padding-top: 10px;
+  }
+}

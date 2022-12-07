@@ -1,0 +1,6 @@
+@import "../../style/utils";
+
+footer {
+  font-size: map-get($sizes, s);
+  padding: 5px 0px;
+}

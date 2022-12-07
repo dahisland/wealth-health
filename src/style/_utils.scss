@@ -1,0 +1,47 @@
+$colors: (
+  night: #161616,
+  ice: #fff,
+
+  blood: #ef0414,
+  grass: #76ef00,
+
+  lightmouse: #e9e9e9,
+
+  logoBlue: #4ec3ff,
+  logoGrey: #9a9a9a,
+);
+
+$sizes: (
+  xs: 0.6rem,
+  s: 0.8rem,
+  base: 1rem,
+  m: 1.2rem,
+  l: 2rem,
+  xl: 3rem,
+  max: 5rem,
+);
+
+@mixin fontFamily {
+  font-family: "Roboto", sans-serif;
+}
+
+@mixin resetMargin {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin defaultMargin {
+  padding: 20px 2% 0px 2%;
+}
+
+@mixin responsiveTabloids {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
+
+@mixin responsivePhones {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
