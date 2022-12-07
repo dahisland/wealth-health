@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
+import { useForm, FormProvider } from "react-hook-form";
 import { actionAddEmployee } from "../../app/actions/addEmployee.action";
 import { useDispatch } from "react-redux";
 
@@ -8,20 +7,19 @@ import MainNav from "../../components/mainNav/MainNav";
 import Footer from "../../components/footer/Footer";
 import { identityForm, addressForm, departmentForm } from "../../data/formData";
 import { modelNewEmployeeData } from "../../data/modelNewEmployeeData";
+import ScrollingSelect from "../../components/scrollingSelect/ScrollingSelect";
+import DatePicker from "../../components/datePicker/DatePicker";
+import InputItem from "../../components/inputItem/InputItem";
+import ValidationModale from "../../components/validationModale/ValidationModale";
+import FormButtons from "../../components/formButtons/FormButtons";
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
   const [submitStatus, setSubmitStatus] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    clearErrors,
-    reset,
-  } = useForm();
+  const methods = useForm();
 
   /**
-   * Function on form submit to action login
+   * Function on form submit to create Employee
    * @param {object} data - Data collected from useForm()
    * @async
    */
@@ -29,7 +27,7 @@ const CreateEmployee = () => {
     const dataFormatted = new modelNewEmployeeData(data);
     console.log(dataFormatted.formatNewEmployeeData());
     setSubmitStatus(true);
-    reset();
+    methods.reset();
     actionAddEmployee(dispatch, dataFormatted.formatNewEmployeeData());
   }
   return (
@@ -38,158 +36,78 @@ const CreateEmployee = () => {
       <main className="pageCreate_main">
         <h1>CREATE EMPLOYEE</h1>
 
-        <form
-          onSubmit={handleSubmit(submitLoginForm)}
-          className="newEmployee_form"
-        >
-          <div className="newEmployeeForm_category">
-            {identityForm.map((item) => (
-              <div className="newEmployeeForm_item" key={item.id}>
-                <label htmlFor={item.id}>{item.label + " : "}</label>
-                <input
-                  type={item.type}
-                  id={item.id}
-                  name={item.id}
-                  {...register(item.id, {
-                    required: {
-                      value: true,
-                      message: "This field is required",
-                    },
-                  })}
-                />
-                <p className="input-error-message">
-                  <ErrorMessage errors={errors} name={item.id} />
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <fieldset className="newEmployeeFieldset_address">
-            <legend>Address</legend>
-
-            {addressForm.map((item) =>
-              item.type ? (
-                <div className="newEmployeeForm_item" key={item.id}>
-                  <label htmlFor={item.id}>{item.label + " : "}</label>
-                  <input
-                    type={item.type}
-                    id={item.id}
-                    name={item.id}
-                    {...register(
-                      item.id,
-                      item.type === "text"
-                        ? {
-                            required: {
-                              value: true,
-                              message: "This field is required",
-                            },
-                          }
-                        : {
-                            required: {
-                              value: true,
-                              message: "This field is required",
-                            },
-                            minLength: {
-                              value: 5,
-                              message: "Minimum 5 characters",
-                            },
-                          }
-                    )}
+        <FormProvider {...methods}>
+          <form
+            onSubmit={methods.handleSubmit(submitLoginForm)}
+            className="newEmployee_form"
+          >
+            <div className="newEmployeeForm_identity">
+              {identityForm.map((item) =>
+                item.type !== "date" ? (
+                  <InputItem
+                    key={item.id}
+                    itemId={item.id}
+                    itemType={item.type}
+                    itemLabel={item.label}
+                    itemErrors={methods.errors}
                   />
-                  <p className="input-error-message">
-                    <ErrorMessage errors={errors} name={item.id} />
-                  </p>
-                </div>
-              ) : (
-                <div className="newEmployeeForm_item" key={item.id}>
-                  <label htmlFor={item.id}>{item.label + " : "}</label>
-                  <select
-                    name={item.id}
-                    id={item.id}
-                    defaultValue={""}
-                    {...register(item.id, {
-                      required: {
-                        value: true,
-                        message: "You must select an option",
-                      },
-                    })}
-                  >
-                    <option value="" disabled className="default-option">
-                      - - - Select a state - - -
-                    </option>
-                    {item.options
-                      .sort((a, b) => (a.name < b.name ? -1 : 1))
-                      .map((option) => (
-                        <option
-                          value={option.abbreviation}
-                          key={item.id + option.abbreviation}
-                        >
-                          {option.name}
-                        </option>
-                      ))}
-                  </select>
-                  <p className="input-error-message">
-                    <ErrorMessage errors={errors} name={item.id} />
-                  </p>
-                </div>
-              )
-            )}
-          </fieldset>
-
-          <div className="newEmployeeForm_category">
-            <div className="newEmployeeForm_item">
-              <label htmlFor={departmentForm.id}>
-                {departmentForm.label + " : "}
-              </label>
-              <select
-                name={departmentForm.id}
-                id={departmentForm.id}
-                defaultValue={""}
-                {...register(departmentForm.id, {
-                  required: {
-                    value: true,
-                    message: "You must select an option",
-                  },
-                })}
-              >
-                <option value="" disabled className="default-option">
-                  - - - Select a department - - -
-                </option>
-                {departmentForm.options
-                  .sort((a, b) => (a.name < b.name ? -1 : 1))
-                  .map((option) => (
-                    <option
-                      value={option.name}
-                      key={departmentForm.id + option.name}
-                    >
-                      {option.name}
-                    </option>
-                  ))}
-              </select>
-              <p className="input-error-message">
-                <ErrorMessage errors={errors} name={departmentForm.id} />
-              </p>
+                ) : (
+                  <DatePicker
+                    key={item.id}
+                    itemId={item.id}
+                    itemLabel={item.label}
+                    itemErrors={methods.errors}
+                  />
+                )
+              )}
             </div>
-          </div>
 
-          <div className="newEmployeeForm_buttons">
-            <button type="submit">Save</button>
-            <button type="reset" onClick={() => clearErrors()}>
-              Reset
-            </button>
-          </div>
-        </form>
+            <fieldset className="newEmployeeFieldset_address">
+              <legend>Address</legend>
+
+              {addressForm.map((item) =>
+                item.type !== "select" ? (
+                  <InputItem
+                    key={item.id}
+                    itemId={item.id}
+                    itemType={item.type}
+                    itemLabel={item.label}
+                    itemErrors={methods.errors}
+                  />
+                ) : (
+                  <ScrollingSelect
+                    key={item.id}
+                    itemId={item.id}
+                    itemLabel={item.label}
+                    itemOptions={item.options}
+                    itemErrors={methods.errors}
+                  />
+                )
+              )}
+            </fieldset>
+
+            <div className="newEmployeeForm_department">
+              <ScrollingSelect
+                itemId={departmentForm.id}
+                itemLabel={departmentForm.label}
+                itemOptions={departmentForm.options}
+                itemErrors={methods.errors}
+              />
+            </div>
+
+            <FormButtons eventOnClick={() => methods.clearErrors()} />
+          </form>
+        </FormProvider>
       </main>
+
       <Footer />
+
       {submitStatus ? (
-        <div className="modale">
-          <div className="modale-content">
-            <p onClick={() => setSubmitStatus(false)} className="icon-close">
-              X
-            </p>
-            <p>User successfully created</p>
-          </div>
-        </div>
+        <ValidationModale
+          eventOnClick={() => setSubmitStatus(false)}
+          modaleIcon={"X"}
+          modaleContent={<p>User successfully created</p>}
+        />
       ) : null}
     </div>
   );

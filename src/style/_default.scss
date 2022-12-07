@@ -34,3 +34,8 @@ main {
     padding-top: 10px;
   }
 }
+
+h1 {
+  @include resetMargin;
+  font-size: map-get($sizes, l);
+}

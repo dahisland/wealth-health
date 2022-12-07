@@ -3,9 +3,9 @@
 .homepage_main {
   h1 {
     color: map-get($colors, logoBlue);
-    font-size: map-get($sizes, xl);
+    font-size: map-get($sizes, l);
     padding: 0px 10%;
-    margin-bottom: 50px;
+    margin-bottom: 2rem;
     @include responsiveTabloids {
       color: map-get($colors, logoBlue);
       font-size: map-get($sizes, l);
@@ -22,8 +22,8 @@
     }
   }
   .icon-tool {
-    font-size: 15rem;
-    margin-bottom: 5rem;
+    font-size: 10rem;
+    margin-bottom: 2rem;
     @include responsiveTabloids {
       font-size: 10rem;
       margin-bottom: 1rem;

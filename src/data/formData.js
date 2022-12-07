@@ -34,6 +34,7 @@ export const addressForm = [
   },
   {
     id: "newEmployee_state",
+    type: "select",
     label: "State",
     options: [
       {
@@ -283,6 +284,7 @@ export const addressForm = [
 
 export const departmentForm = {
   id: "newEmployee_department",
+  type: "select",
   label: "Department",
   options: [
     { name: "Sales" },

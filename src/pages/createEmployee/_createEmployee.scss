@@ -8,7 +8,7 @@
 
 .newEmployee_form {
   width: fit-content;
-  margin-top: 2rem;
+  margin-top: 3rem;
   fieldset {
     padding: 3rem 1rem;
     margin: 1rem 0rem;
@@ -25,7 +25,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
   margin-bottom: 0.5rem;
   input,
   select {
@@ -37,6 +36,7 @@
     font-size: map-get($sizes, base);
     color: map-get($colors, logoGrey);
     text-align: center;
+    background-color: map-get($colors, ice);
     &:focus {
       border: 1px solid map-get($colors, logoBlue);
       outline: 3px solid map-get($colors, logoBlue);
@@ -50,12 +50,6 @@
   }
 }
 
-.newEmployeeForm_buttons {
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem 0px;
-}
-
 .input-error-message {
   width: 150px;
   margin: 0;
@@ -63,40 +57,6 @@
   font-size: map-get($sizes, xs);
   text-align: left;
   color: map-get($colors, blood);
-}
-
-.modale {
-  position: absolute;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  .modale-content {
-    position: relative;
-    border-radius: 10px;
-    padding: 4rem;
-    background-color: map-get($colors, ice);
-  }
-  .icon-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    margin: 0;
-    width: 2rem;
-    height: 2rem;
-    line-height: 2rem;
-    background-color: black;
-    text-align: center;
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-  }
 }
 
 .default-option {

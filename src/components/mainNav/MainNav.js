@@ -19,13 +19,13 @@ const MainNav = () => {
           Create employee
         </NavLink>
         <NavLink
-          to="/current-employees"
+          to="/employees-list"
           end
           className={(nav) =>
             nav.isActive ? "mainNav_link--active" : "mainNav_link"
           }
         >
-          Current employees
+          Employees list
         </NavLink>
       </nav>
     </header>
