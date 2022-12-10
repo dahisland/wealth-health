@@ -9,12 +9,21 @@
 .newEmployee_form {
   width: fit-content;
   margin-top: 3rem;
+  @include responsiveTabloids {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   fieldset {
     padding: 3rem 1rem;
     margin: 1rem 0rem;
     color: map-get($colors, logoBlue);
     border: 4px double map-get($colors, logoBlue);
     border-radius: 10px;
+    @include responsiveTabloids {
+      padding: 1.5rem 1rem;
+    }
     legend {
       font-size: map-get($sizes, l);
     }
@@ -26,20 +35,33 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 0.5rem;
-  input,
-  select {
+  @include responsiveTabloids {
+    flex-direction: column;
+    margin: 0;
+  }
+  .employeeFormItem-input {
     width: 280px;
     height: 40px;
     border: 2px solid map-get($colors, logoGrey);
     border-radius: 5px;
     @include fontFamily;
     font-size: map-get($sizes, base);
-    color: map-get($colors, logoGrey);
+    font-weight: 700;
+    color: map-get($colors, logoBlue);
     text-align: center;
     background-color: map-get($colors, ice);
+    @include responsiveTabloids {
+      width: 100%;
+    }
     &:focus {
       border: 1px solid map-get($colors, logoBlue);
       outline: 3px solid map-get($colors, logoBlue);
+    }
+    &::placeholder {
+      color: lighten(map-get($colors, logoGrey), 0%);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.8rem;
     }
   }
   label {
@@ -47,6 +69,22 @@
     padding: 1rem;
     text-align: left;
     color: map-get($colors, logoBlue);
+    @include responsiveTabloids {
+      text-align: center;
+      padding: 0.5rem;
+    }
+  }
+}
+.newEmployeeForm_identity,
+.newEmployeeForm_department {
+  @include responsiveTabloids {
+    width: 85%;
+  }
+}
+.newEmployeeFieldset_address {
+  @include responsiveTabloids {
+    width: 95%;
+    padding: 0px 5%;
   }
 }
 
@@ -57,9 +95,14 @@
   font-size: map-get($sizes, xs);
   text-align: left;
   color: map-get($colors, blood);
+  @include responsiveTabloids {
+    text-align: center;
+    padding: 0.5rem;
+  }
 }
 
 .default-option {
   color: map-get($colors, logoBlue);
   font-style: italic;
+  font-weight: 700;
 }

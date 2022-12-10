@@ -8,7 +8,7 @@ import Footer from "../../components/footer/Footer";
 import { identityForm, addressForm, departmentForm } from "../../data/formData";
 import { modelNewEmployeeData } from "../../data/modelNewEmployeeData";
 import ScrollingSelect from "../../components/scrollingSelect/ScrollingSelect";
-import DatePicker from "../../components/datePicker/DatePicker";
+import InputDatepicker from "../../components/inputDatepicker/InputDatepicker";
 import InputItem from "../../components/inputItem/InputItem";
 import ValidationModale from "../../components/validationModale/ValidationModale";
 import FormButtons from "../../components/formButtons/FormButtons";
@@ -23,13 +23,20 @@ const CreateEmployee = () => {
    * @param {object} data - Data collected from useForm()
    * @async
    */
-  async function submitLoginForm(data) {
+  async function submitLoginForm(e, data) {
+    e.preventDefault();
     const dataFormatted = new modelNewEmployeeData(data);
     console.log(dataFormatted.formatNewEmployeeData());
     setSubmitStatus(true);
     methods.reset();
     actionAddEmployee(dispatch, dataFormatted.formatNewEmployeeData());
   }
+
+  function resetAll() {
+    methods.clearErrors();
+    methods.reset();
+  }
+
   return (
     <div className="currentPage">
       <MainNav />
@@ -50,13 +57,15 @@ const CreateEmployee = () => {
                     itemType={item.type}
                     itemLabel={item.label}
                     itemErrors={methods.errors}
+                    itemPlaceholder={item.placeholder}
                   />
                 ) : (
-                  <DatePicker
+                  <InputDatepicker
                     key={item.id}
                     itemId={item.id}
                     itemLabel={item.label}
                     itemErrors={methods.errors}
+                    itemPlaceholder={item.placeholder}
                   />
                 )
               )}
@@ -73,6 +82,7 @@ const CreateEmployee = () => {
                     itemType={item.type}
                     itemLabel={item.label}
                     itemErrors={methods.errors}
+                    itemPlaceholder={item.placeholder}
                   />
                 ) : (
                   <ScrollingSelect
@@ -95,7 +105,7 @@ const CreateEmployee = () => {
               />
             </div>
 
-            <FormButtons eventOnClick={() => methods.clearErrors()} />
+            <FormButtons eventOnClick={() => resetAll()} />
           </form>
         </FormProvider>
       </main>

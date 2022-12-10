@@ -3,21 +3,25 @@ export const identityForm = [
     id: "newEmployee_firstname",
     type: "text",
     label: "First Name",
+    placeholder: " ex : Maria",
   },
   {
     id: "newEmployee_lastname",
     type: "text",
     label: "Last Name",
+    placeholder: " ex : Hemingway",
   },
   {
     id: "newEmployee_dateOfBirth",
     type: "date",
     label: "Date of Birth",
+    placeholder: "dd/mm/yyyy",
   },
   {
     id: "newEmployee_startDate",
     type: "date",
     label: "Start Date",
+    placeholder: "dd/mm/yyyy",
   },
 ];
 
@@ -26,11 +30,13 @@ export const addressForm = [
     id: "newEmployee_street",
     type: "text",
     label: "Street",
+    placeholder: "ex : 107, Robinson Street",
   },
   {
     id: "newEmployee_city",
     type: "text",
     label: "City",
+    placeholder: "ex : Orlando",
   },
   {
     id: "newEmployee_state",
@@ -279,6 +285,7 @@ export const addressForm = [
     id: "newEmployee_zipcode",
     type: "number",
     label: "Zip Code",
+    placeholder: "ex : 32805",
   },
 ];
 

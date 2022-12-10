@@ -10,7 +10,7 @@ const Homepage = () => {
     <div className="currentPage">
       <MainNav />
       <main className="homepage_main">
-        <h1>Human Ressources support to optimize your business management</h1>
+        <h1>Human Resources support to optimize your business management</h1>
         <div className="icon-tool">
           <FontAwesomeIcon icon={faGear}></FontAwesomeIcon>
         </div>

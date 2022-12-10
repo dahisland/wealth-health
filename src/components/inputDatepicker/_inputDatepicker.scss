@@ -1,0 +1,189 @@
+@import "../../style/utils";
+
+//input wrapper
+.react-datepicker-wrapper {
+  width: inherit;
+  @include responsiveTabloids {
+    width: 100%;
+  }
+}
+
+//calendar container
+.react-datepicker-popper {
+  z-index: 1;
+  width: 100%;
+  padding: 27%;
+  @include responsiveTabloids {
+    padding: 5%;
+  }
+}
+
+// Calendar content
+.react-datepicker {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: map-get($colors, logoGrey);
+  border-radius: 0.6rem;
+  border: 3px solid map-get($colors, logoBlue);
+  box-shadow: 0px 5px 10px map-get($colors, logoGrey);
+
+  // Arrows months navigation
+  .react-datepicker__navigation {
+    padding-top: 0.4rem;
+    font-size: 1.2rem;
+    color: map-get($colors, ice);
+    width: 58px;
+    height: 45px;
+    @include responsivePhones {
+      width: 30px;
+    }
+  }
+  .react-datepicker__navigation:hover *::before {
+    border-color: map-get($colors, ice);
+  }
+
+  // Contains header (month & selectors) + day calendar
+  .react-datepicker__month-container {
+    float: left;
+    width: 100%;
+  }
+
+  // button to select today's day
+  .react-datepicker__today-button {
+    padding: 0.5rem;
+    background-color: map-get($colors, logoBlue);
+    color: map-get($colors, ice);
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 1.2rem;
+    &:hover {
+      background-color: map-get($colors, logoGrey);
+    }
+  }
+
+  // Legend of the datepicker
+  .legend-calendar {
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: map-get($colors, logoBlue);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+// Triangle
+.react-datepicker-popper[data-placement^="bottom"]
+  .react-datepicker__triangle::after,
+.react-datepicker-popper[data-placement^="bottom"]
+  .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^="top"]
+  .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^="top"]
+  .react-datepicker__triangle::after,
+.react-datepicker__triangle {
+  border-top: none;
+  border-bottom-color: map-get($colors, logoBlue);
+}
+
+// Calendar header
+.react-datepicker__header {
+  background-color: map-get($colors, logoBlue);
+
+  // Current month
+  .react-datepicker__current-month {
+    color: map-get($colors, ice);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    height: 40px;
+  }
+
+  // Container for selectors month and year
+  .react-datepicker__month-dropdown-container--select {
+    @include responsivePhones {
+      width: 100%;
+    }
+  }
+  .react-datepicker__header__dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 5%;
+    gap: 5%;
+    @include responsivePhones {
+      flex-direction: column;
+      padding: 0%;
+    }
+
+    //Selectors months and year
+    .react-datepicker__month-select,
+    .react-datepicker__year-select {
+      width: 140px;
+      height: 30px;
+      border-radius: 5px;
+      border: 1px solid map-get($colors, logoBlue);
+      text-align: left;
+      padding: 0.2rem 0.5rem;
+      color: map-get($colors, logoBlue);
+      @include responsivePhones {
+        width: 180px;
+        margin-bottom: 0.5rem;
+      }
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
+
+// Calendar days names
+.react-datepicker__day-names,
+.react-datepicker__week {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10%;
+  font-size: 1rem;
+  font-weight: 700;
+  @include responsiveTabloids {
+    padding: 0px 15%;
+  }
+  @include responsivePhones {
+    padding: 0%;
+  }
+}
+.react-datepicker__day-names,
+.react-datepicker__day-name {
+  color: map-get($colors, ice);
+  font-variant: small-caps;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+// // Calendar days numbers
+.react-datepicker__day {
+  color: map-get($colors, logoBlue);
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--selected:hover,
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day--keyboard-selected:hover,
+.react-datepicker__close-icon::after {
+  color: map-get($colors, ice);
+  background-color: map-get($colors, logoBlue);
+}
+.react-datepicker__day--disabled {
+  font-weight: 300;
+  font-style: italic;
+  color: map-get($colors, logoGrey);
+}
+
+.react-datepicker__close-icon::after {
+  background-color: map-get($colors, logoBlue);
+  width: 12px;
+  height: 10px;
+  padding: 2px;
+  line-height: 1;
+}

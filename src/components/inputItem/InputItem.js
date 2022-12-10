@@ -2,7 +2,13 @@ import React from "react";
 import { ErrorMessage } from "@hookform/error-message";
 import { useFormContext } from "react-hook-form";
 
-const InputItem = ({ itemId, itemType, itemLabel, itemErrors }) => {
+const InputItem = ({
+  itemId,
+  itemType,
+  itemLabel,
+  itemErrors,
+  itemPlaceholder,
+}) => {
   const { register } = useFormContext();
   return (
     <div className="newEmployeeForm_category">
@@ -12,6 +18,9 @@ const InputItem = ({ itemId, itemType, itemLabel, itemErrors }) => {
           type={itemType}
           id={itemId}
           name={itemId}
+          className={"employeeFormItem-input"}
+          placeholder={itemPlaceholder}
+          autoComplete="off"
           {...register(
             itemId,
             itemType === "number"

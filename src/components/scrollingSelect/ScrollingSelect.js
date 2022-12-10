@@ -12,6 +12,7 @@ const ScrollingSelect = ({ itemId, itemLabel, itemOptions, itemErrors }) => {
           name={itemId}
           id={itemId}
           defaultValue={""}
+          className={"employeeFormItem-input"}
           {...register(itemId, {
             required: {
               value: true,
