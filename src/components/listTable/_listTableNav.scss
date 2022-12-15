@@ -1,0 +1,37 @@
+@import "../../style/utils";
+
+.listTable-nav {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-arrow {
+  cursor: pointer;
+  background-color: lighten(map-get($colors, logoBlue), 15%);
+  color: map-get($colors, ice);
+  font-size: 0.8rem;
+  width: 120px;
+  height: 33px;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  &:hover {
+    background-color: lighten(map-get($colors, logoBlue), 0%);
+    font-size: 0.9rem;
+  }
+}
+.nav-arrow--disabled {
+  cursor: default;
+  width: 120px;
+  height: 33px;
+  font-style: italic;
+  font-size: 0.7rem;
+  background-color: lighten(map-get($colors, lightmouse), 5%);
+  color: lighten(map-get($colors, logoGrey), 20%);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}

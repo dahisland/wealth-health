@@ -1,0 +1,25 @@
+@import "../../style/utils";
+
+.listTable-headRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+  align-items: center;
+  .headRow-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100px;
+    padding: 0.4rem 0rem;
+    margin: 0;
+    margin-bottom: 0.4rem;
+    background-color: map-get($colors, logoBlue);
+    color: map-get($colors, ice);
+    border-radius: 5px;
+  }
+  .headRow-iconsSort {
+    cursor: pointer;
+    padding: 0rem 0.4rem;
+  }
+}

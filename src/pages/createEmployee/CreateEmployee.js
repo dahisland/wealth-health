@@ -23,8 +23,7 @@ const CreateEmployee = () => {
    * @param {object} data - Data collected from useForm()
    * @async
    */
-  async function submitLoginForm(e, data) {
-    e.preventDefault();
+  async function submitLoginForm(data) {
     const dataFormatted = new modelNewEmployeeData(data);
     console.log(dataFormatted.formatNewEmployeeData());
     setSubmitStatus(true);
@@ -97,12 +96,15 @@ const CreateEmployee = () => {
             </fieldset>
 
             <div className="newEmployeeForm_department">
-              <ScrollingSelect
-                itemId={departmentForm.id}
-                itemLabel={departmentForm.label}
-                itemOptions={departmentForm.options}
-                itemErrors={methods.errors}
-              />
+              {departmentForm.map((item) => (
+                <ScrollingSelect
+                  key={item.id}
+                  itemId={item.id}
+                  itemLabel={item.label}
+                  itemOptions={item.options}
+                  itemErrors={item.errors}
+                />
+              ))}
             </div>
 
             <FormButtons eventOnClick={() => resetAll()} />

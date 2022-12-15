@@ -1,9 +1,10 @@
 @import "../../style/utils";
 
 .modale {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   display: flex;
+  overscroll-behavior: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;

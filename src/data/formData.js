@@ -1,24 +1,24 @@
 export const identityForm = [
   {
-    id: "newEmployee_firstname",
+    id: "firstName",
     type: "text",
     label: "First Name",
     placeholder: " ex : Maria",
   },
   {
-    id: "newEmployee_lastname",
+    id: "lastName",
     type: "text",
     label: "Last Name",
     placeholder: " ex : Hemingway",
   },
   {
-    id: "newEmployee_dateOfBirth",
+    id: "dateOfBirth",
     type: "date",
     label: "Date of Birth",
     placeholder: "dd/mm/yyyy",
   },
   {
-    id: "newEmployee_startDate",
+    id: "startDate",
     type: "date",
     label: "Start Date",
     placeholder: "dd/mm/yyyy",
@@ -27,19 +27,19 @@ export const identityForm = [
 
 export const addressForm = [
   {
-    id: "newEmployee_street",
+    id: "street",
     type: "text",
     label: "Street",
     placeholder: "ex : 107, Robinson Street",
   },
   {
-    id: "newEmployee_city",
+    id: "city",
     type: "text",
     label: "City",
     placeholder: "ex : Orlando",
   },
   {
-    id: "newEmployee_state",
+    id: "state",
     type: "select",
     label: "State",
     options: [
@@ -282,22 +282,28 @@ export const addressForm = [
     ],
   },
   {
-    id: "newEmployee_zipcode",
+    id: "zipCode",
     type: "number",
     label: "Zip Code",
     placeholder: "ex : 32805",
   },
 ];
 
-export const departmentForm = {
-  id: "newEmployee_department",
-  type: "select",
-  label: "Department",
-  options: [
-    { name: "Sales" },
-    { name: "Marketing" },
-    { name: "Engineering" },
-    { name: "Human Resources" },
-    { name: "Legal" },
-  ],
-};
+export const departmentForm = [
+  {
+    id: "department",
+    type: "select",
+    label: "Department",
+    options: [
+      { name: "Sales" },
+      { name: "Marketing" },
+      { name: "Engineering" },
+      { name: "Human Resources" },
+      { name: "Legal" },
+    ],
+  },
+];
+
+export const allFormData = identityForm
+  .concat(departmentForm)
+  .concat(addressForm);

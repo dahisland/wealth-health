@@ -10,8 +10,11 @@ export const employeesSlice = createSlice({
     addEmployee: (state, action) => {
       state.employeesList = [...state.employeesList, action.payload];
     },
+    deleteEmployee: (state, action) => {
+      state.employeesList = action.payload;
+    },
   },
 });
 
-export const { addEmployee } = employeesSlice.actions;
+export const { addEmployee, deleteEmployee } = employeesSlice.actions;
 export default employeesSlice.reducer;

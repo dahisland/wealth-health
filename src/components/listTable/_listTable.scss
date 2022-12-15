@@ -1,0 +1,29 @@
+@import "../../style/utils";
+
+// Grid
+.list-table {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+.listTable-wrapper {
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+  height: fit-content;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(auto-fit);
+  grid-gap: 10px;
+  row-gap: 15px;
+}
+
+.bodyRowContent-name {
+  font-weight: 700;
+}
+
+.bodyRowContent-label {
+  font-style: italic;
+  color: map-get($colors, logoBlue);
+}

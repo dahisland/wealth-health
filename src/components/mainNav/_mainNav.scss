@@ -35,7 +35,7 @@
   }
 
   .mainNav_link {
-    color: map-get($colors, logoBlue);
+    color: map-get($colors, logoGrey);
     background-color: map-get($colors, ice);
     transition: all 700ms;
     @include responsiveTabloids {

@@ -1,0 +1,24 @@
+@import "../../style/utils";
+
+.listTable-search {
+  text-align: left;
+  margin-bottom: 1rem;
+  input {
+    width: 250px;
+    height: 35px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    color: map-get($colors, logoGrey);
+    font-size: 1rem;
+    border: 1px solid darken(map-get($colors, lightmouse), 20%);
+    outline: 1px solid darken(map-get($colors, lightmouse), 20%);
+    &:focus {
+      border: 1px solid map-get($colors, logoBlue);
+      outline: 3px solid map-get($colors, logoBlue);
+    }
+    &::placeholder {
+      font-size: 0.8rem;
+      color: darken(map-get($colors, lightmouse), 10%);
+    }
+  }
+}
