@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { tableLabels } from "../../data/tableData";
 import { filterArrayEmployeesData } from "./employeesList.functions";
 import ListTable from "../../components/listTable/ListTable";
-import { modelNewEmployeeData } from "../../data/modelNewEmployeeData";
-import { filterDataBySearch } from "./employeesList.functions";
 import { employeesMockData } from "../../tests/dataMock.test";
 
 const EmployeesList = () => {
