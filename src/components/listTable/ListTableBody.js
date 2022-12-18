@@ -1,4 +1,5 @@
 import React from "react";
+import { actionDeleteEmployee } from "../../app/actions/deleteEmployee.action";
 
 const ListTableBody = (props) => {
   return (
@@ -44,6 +45,20 @@ const ListTableBody = (props) => {
                 <p>
                   {item.department[0].toUpperCase() + item.department.slice(1)}
                 </p>
+              </div>
+              <div
+                className="bodyRow-content--delete"
+                onClick={() =>
+                  actionDeleteEmployee(
+                    props.dispatch,
+                    props.dataList,
+                    props.dataOnPageActive,
+                    props.setDataOnPageActive,
+                    item
+                  )
+                }
+              >
+                Delete this entry
               </div>
             </div>
           ))}

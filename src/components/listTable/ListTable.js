@@ -25,7 +25,12 @@ const ListTable = (props) => {
           dataFiltered={props.dataFiltered}
           setDataFiltered={props.setDataFiltered}
         />
-        <ListTableBody dataOnPageActive={props.dataOnPageActive} />
+        <ListTableBody
+          dataOnPageActive={props.dataOnPageActive}
+          setDataOnPageActive={props.setDataOnPageActive}
+          dispatch={props.dispatch}
+          dataList={props.dataList}
+        />
       </div>
     </div>
   );
