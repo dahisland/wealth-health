@@ -1,9 +1,9 @@
 import React from "react";
 
 const ListTableNav = (props) => {
-  function navToNextTable(arrayEmployeesList) {
+  function navToNextTable() {
     if (
-      props.stateTablePage < parseInt((arrayEmployeesList.length - 1) / 10, 10)
+      props.stateTablePage < parseInt((props.dataFiltered.length - 1) / 10, 10)
     ) {
       props.setTablePage(props.stateTablePage + 1);
     }
@@ -28,21 +28,12 @@ const ListTableNav = (props) => {
       <p>{props.stateTablePage + 1}</p>
       <button
         className={
-          props.isOnSearch === false
-            ? props.stateTablePage >=
-              parseInt((props.dataList.length - 1) / 10, 10)
-              ? "nav-arrow--disabled"
-              : "nav-arrow"
-            : props.stateTablePage >=
-              parseInt((props.resultSearch.length - 1) / 10, 10)
+          props.stateTablePage >=
+          parseInt((props.dataFiltered.length - 1) / 10, 10)
             ? "nav-arrow--disabled"
             : "nav-arrow"
         }
-        onClick={
-          props.isOnSearch === false
-            ? () => navToNextTable(props.dataList)
-            : () => navToNextTable(props.resultSearch)
-        }
+        onClick={() => navToNextTable()}
       >
         Next
       </button>

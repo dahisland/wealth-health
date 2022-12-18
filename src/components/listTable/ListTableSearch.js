@@ -14,34 +14,30 @@ const ListTableSearch = (props) => {
 
   function filterDataBySearch(e) {
     const inputValue = e.target.value;
-    if (inputValue.length >= 1) {
-      let normalizeSearchUser = normalizeText(inputValue).trim();
-      const arrayInputSearchBar =
-        normalizeSearchUser.match(/([0-9a-z]{1,} ?)/g);
-      props.setSearchData(arrayInputSearchBar);
-      console.log(props.searchData);
+    if (inputValue.length >= 2) {
+      const arraySearchWords = normalizeText(inputValue)
+        .trim()
+        .match(/([0-9a-z]{1,} ?)/g);
+
       //callback function
       const filterRecipes = (obj) => {
         const itemFormatted = new modelNewEmployeeData(obj);
         const itemContent = Object.values(itemFormatted.formatForSearch());
         const itemContentFormatted = normalizeText(itemContent.toString());
         const testEachSearchWord = (item) => {
-          console.log(itemContentFormatted);
-          console.log(item);
           return itemContentFormatted.match(item);
         };
-        return props.searchData.every(testEachSearchWord);
+        return arraySearchWords.every(testEachSearchWord);
       };
       let arrayFiltered = props.dataList.filter(filterRecipes);
-      props.setResultSearch(arrayFiltered);
-      props.setIsOnSearch(true);
+      props.setDataFiltered(arrayFiltered);
       props.setTablePage(0);
     } else {
-      props.setIsOnSearch(false);
       props.setTablePage(0);
-      props.setResultSearch([]);
+      props.setDataFiltered(props.dataList);
     }
   }
+
   return (
     <div className="listTable-search">
       <input

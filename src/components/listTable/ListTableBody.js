@@ -1,16 +1,16 @@
 import React from "react";
-import { actionDeleteEmployee } from "../../app/actions/deleteEmployee.action";
 
 const ListTableBody = (props) => {
   return (
     <React.Fragment>
-      {props.dataListFiltered.length !== 0 ? (
+      {props.dataOnPageActive.length !== 0 ? (
         <React.Fragment>
-          {props.dataListFiltered.map((item, index) => (
+          {props.dataOnPageActive.map((item, index) => (
             <div key={"listBody-row-" + index} className="listTable-bodyRow">
               <div className="bodyRow-content">
                 <h2>
-                  {item.lastName.toUpperCase()} {item.firstName}
+                  {item.lastName.toUpperCase()}{" "}
+                  {item.firstName[0].toUpperCase() + item.firstName.slice(1)}
                 </h2>
                 <p>
                   <span className="bodyRowContent-label">Date of Birth : </span>
@@ -32,30 +32,24 @@ const ListTableBody = (props) => {
                 </p>
                 <p>
                   <span className="bodyRowContent-label">City : </span>
-                  {item.city}
+                  {item.city[0].toUpperCase() + item.city.slice(1)}
                 </p>
                 <p>
                   <span className="bodyRowContent-label">State : </span>
-                  {item.state}
+                  {item.state.toUpperCase()}
                 </p>
               </div>
               <div className="bodyRow-content--department">
                 <h2>DEPARTMENT : </h2>
-                <p>{item.department}</p>
-              </div>
-              <div
-                className="bodyRow-content--delete"
-                onClick={() =>
-                  actionDeleteEmployee(props.dispatch, props.dataList, item)
-                }
-              >
-                delete this entry
+                <p>
+                  {item.department[0].toUpperCase() + item.department.slice(1)}
+                </p>
               </div>
             </div>
           ))}
         </React.Fragment>
       ) : (
-        <div>No data employee is available</div>
+        <div>No data employee have been found</div>
       )}
     </React.Fragment>
   );

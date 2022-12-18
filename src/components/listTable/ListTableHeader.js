@@ -3,34 +3,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const ListTableHeader = (props) => {
-  function sortAscending(employeeData, setEmployeesData, itemData) {
-    let copyArray = [...employeeData];
-    // copyArray.forEach((item) => {
-    //   item.dateOfBirth = new Date(item.dateOfBirth).valueOf();
-    //   item.startDate = new Date(item.startDate).valueOf();
-    // });
-
+  function sortAscending(itemData) {
+    let copyArray = [...props.dataFiltered];
     let copyArraySorted = copyArray.sort(function compare(a, b) {
       if (a[itemData.keyRef] < b[itemData.keyRef]) return -1;
       if (a[itemData.keyRef] > b[itemData.keyRef]) return 1;
       return 0;
     });
-    setEmployeesData(copyArraySorted);
+    props.setDataFiltered(copyArraySorted);
   }
 
-  function sortDescending(employeeData, setEmployeesData, itemData) {
-    let copyArray = [...employeeData];
-    // copyArray.forEach((item) => {
-    //   item.dateOfBirth = new Date(item.dateOfBirth).valueOf();
-    //   item.startDate = new Date(item.startDate).valueOf();
-    // });
+  function sortDescending(itemData) {
+    let copyArray = [...props.dataFiltered];
     let copyArraySorted = copyArray.sort(function compare(a, b) {
       if (a[itemData.keyRef] < b[itemData.keyRef]) return 1;
       if (a[itemData.keyRef] > b[itemData.keyRef]) return -1;
       return 0;
     });
-    console.log(copyArraySorted);
-    setEmployeesData(copyArraySorted);
+    props.setDataFiltered(copyArraySorted);
   }
   return (
     <div className="listTable-headRow">
@@ -38,42 +28,14 @@ const ListTableHeader = (props) => {
         <p key={"table-head-" + index} className={"headRow-data"}>
           <span
             className="headRow-iconsSort"
-            onClick={
-              props.isOnSearch === false
-                ? () =>
-                    sortAscending(
-                      props.dataListFiltered,
-                      props.setDataListFiltered,
-                      item
-                    )
-                : () =>
-                    sortAscending(
-                      props.resultSearch,
-                      props.setResultSearch,
-                      item
-                    )
-            }
+            onClick={() => sortAscending(item)}
           >
             <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
           </span>
           <span>{item.label}</span>
           <span
             className="headRow-iconsSort"
-            onClick={
-              props.isOnSearch === false
-                ? () =>
-                    sortDescending(
-                      props.dataListFiltered,
-                      props.setDataListFiltered,
-                      item
-                    )
-                : () =>
-                    sortDescending(
-                      props.resultSearch,
-                      props.setResultSearch,
-                      item
-                    )
-            }
+            onClick={() => sortDescending(item)}
           >
             <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
           </span>

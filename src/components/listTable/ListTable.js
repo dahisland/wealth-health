@@ -9,37 +9,23 @@ const ListTable = (props) => {
     <div className="list-table">
       <ListTableSearch
         dataList={props.dataList}
-        setIsOnSearch={props.setIsOnSearch}
-        setResultSearch={props.setResultSearch}
-        searchData={props.searchData}
-        setSearchData={props.setSearchData}
         setTablePage={props.setTablePage}
+        dataFiltered={props.dataFiltered}
+        setDataFiltered={props.setDataFiltered}
       />
       <div className="listTable-wrapper">
         <ListTableHeader
-          isOnSearch={props.isOnSearch}
-          resultSearch={props.resultSearch}
-          setResultSearch={props.setResultSearch}
           headLabels={props.headLabels}
-          dataList={props.dataList}
-          dataListFiltered={props.dataListFiltered}
-          setDataListFiltered={props.setDataListFiltered}
+          dataFiltered={props.dataFiltered}
+          setDataFiltered={props.setDataFiltered}
         />
         <ListTableNav
-          isOnSearch={props.isOnSearch}
-          resultSearch={props.resultSearch}
           stateTablePage={props.stateTablePage}
           setTablePage={props.setTablePage}
-          dataList={props.dataList}
+          dataFiltered={props.dataFiltered}
+          setDataFiltered={props.setDataFiltered}
         />
-        <ListTableBody
-          dataListFiltered={props.dataListFiltered}
-          dataList={props.dataList}
-          dispatch={props.dispatch}
-          isOnSearch={props.isOnSearch}
-          resultSearch={props.resultSearch}
-          searchData={props.searchData}
-        />
+        <ListTableBody dataOnPageActive={props.dataOnPageActive} />
       </div>
     </div>
   );

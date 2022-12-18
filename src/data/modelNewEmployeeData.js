@@ -15,25 +15,25 @@ export class modelNewEmployeeData {
     this.department = data.department;
   }
 
-  formatNewEmployeeData() {
-    return {
-      firstName: this.firstName[0].toUpperCase() + this.firstName.slice(1),
-      lastName: this.lastName[0].toUpperCase() + this.lastName.slice(1),
-      dateOfBirth: new Date(this.dateOfBirth).getTime(),
-      startDate: new Date(this.startDate).getTime(),
-      street: this.street,
-      city: this.city[0].toUpperCase() + this.city.slice(1),
-      state: this.state,
-      zipCode: this.zipCode,
-      department: this.department,
-    };
-  }
+  // formatNewEmployeeData() {
+  //   return {
+  //     firstName: this.firstName[0].toUpperCase() + this.firstName.slice(1),
+  //     lastName: this.lastName[0].toUpperCase() + this.lastName.slice(1),
+  //     dateOfBirth: new Date(this.dateOfBirth).toLocaleDateString("fr"),
+  //     startDate: new Date(this.startDate).toLocaleDateString("fr"),
+  //     street: this.street,
+  //     city: this.city[0].toUpperCase() + this.city.slice(1),
+  //     state: this.state.ToUpperCase(),
+  //     zipCode: this.zipCode,
+  //     department: this.department[0].toUpperCase() + this.department.slice(1),
+  //   };
+  // }
   formatForSearch() {
     return {
       firstName: this.firstName.toLowerCase(),
       lastName: this.lastName.toLowerCase(),
-      dateOfBirth: new Date(this.dateOfBirth).toLocaleDateString("fr"),
-      startDate: new Date(this.startDate).toLocaleDateString("fr"),
+      dateOfBirth: new Date(this.dateOfBirth).getTime(),
+      startDate: new Date(this.startDate).getTime(),
       street: this.street.toLowerCase(),
       city: this.city.toLowerCase(),
       state: this.state.toLowerCase(),

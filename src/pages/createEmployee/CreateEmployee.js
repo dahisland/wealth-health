@@ -25,10 +25,10 @@ const CreateEmployee = () => {
    */
   async function submitLoginForm(data) {
     const dataFormatted = new modelNewEmployeeData(data);
-    console.log(dataFormatted.formatNewEmployeeData());
+    console.log(dataFormatted.formatForSearch());
     setSubmitStatus(true);
     methods.reset();
-    actionAddEmployee(dispatch, dataFormatted.formatNewEmployeeData());
+    actionAddEmployee(dispatch, dataFormatted.formatForSearch());
   }
 
   function resetAll() {
