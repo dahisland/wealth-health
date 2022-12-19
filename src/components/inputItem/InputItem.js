@@ -16,7 +16,7 @@ const InputItem = (props) => {
         autoComplete="off"
         {...register(
           props.itemId,
-          props.itemType === "number"
+          props.itemType === "number" && props.itemId === "zipCode"
             ? {
                 required: {
                   value: true,
@@ -24,17 +24,17 @@ const InputItem = (props) => {
                 },
                 minLength: {
                   value: 5,
-                  message: "Minimum 5 characters",
+                  message: "Min 5 characters",
+                },
+                maxLength: {
+                  value: 5,
+                  message: "Max 5 characters",
                 },
               }
             : {
                 required: {
                   value: true,
                   message: "This field is required",
-                },
-                minLength: {
-                  value: 2,
-                  message: "Minimum 2 characters",
                 },
               }
         )}

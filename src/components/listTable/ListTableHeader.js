@@ -4,27 +4,16 @@ import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const ListTableHeader = (props) => {
   function sortAscending(itemData) {
-    let copyArray = [...props.dataFiltered];
-    let copyArraySorted = copyArray.sort(function compare(a, b) {
-      if (a[itemData.keyRef] < b[itemData.keyRef]) return -1;
-      if (a[itemData.keyRef] > b[itemData.keyRef]) return 1;
-      return 0;
-    });
-    props.setDataFiltered(copyArraySorted);
+    props.actionSortAscending(props.dispatch, props.dataFiltered, itemData);
   }
 
   function sortDescending(itemData) {
-    let copyArray = [...props.dataFiltered];
-    let copyArraySorted = copyArray.sort(function compare(a, b) {
-      if (a[itemData.keyRef] < b[itemData.keyRef]) return 1;
-      if (a[itemData.keyRef] > b[itemData.keyRef]) return -1;
-      return 0;
-    });
-    props.setDataFiltered(copyArraySorted);
+    props.actionSortDescending(props.dispatch, props.dataFiltered, itemData);
   }
+
   return (
     <div className="listTable-headRow">
-      {props.headLabels.map((item, index) => (
+      {props.sortsLabels.map((item, index) => (
         <p key={"table-head-" + index} className={"headRow-data"}>
           <span
             className="headRow-iconsSort"

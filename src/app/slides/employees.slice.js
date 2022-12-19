@@ -5,16 +5,33 @@ import { createSlice } from "@reduxjs/toolkit";
  */
 export const employeesSlice = createSlice({
   name: "employees",
-  initialState: { employeesList: [] },
+  initialState: { employeesList: [], listFiltered: [] },
   reducers: {
     addEmployee: (state, action) => {
       state.employeesList = [...state.employeesList, action.payload];
+      state.listFiltered = [...state.employeesList];
     },
     deleteEmployee: (state, action) => {
       state.employeesList = action.payload;
+      state.listFiltered = [...state.employeesList];
+    },
+    filterEmployeeList: (state, action) => {
+      state.listFiltered = action.payload;
+    },
+    sortAscendingEmployeeList: (state, action) => {
+      state.listFiltered = action.payload;
+    },
+    sortDescendingEmployeeList: (state, action) => {
+      state.listFiltered = action.payload;
     },
   },
 });
 
-export const { addEmployee, deleteEmployee } = employeesSlice.actions;
+export const {
+  addEmployee,
+  deleteEmployee,
+  filterEmployeeList,
+  sortAscendingEmployeeList,
+  sortDescendingEmployeeList,
+} = employeesSlice.actions;
 export default employeesSlice.reducer;

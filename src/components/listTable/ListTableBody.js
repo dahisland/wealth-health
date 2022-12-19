@@ -1,12 +1,21 @@
 import React from "react";
-import { actionDeleteEmployee } from "../../app/actions/deleteEmployee.action";
 
 const ListTableBody = (props) => {
+  function getDataDisplayedByPage() {
+    const minIndex = props.stateTablePage * 10 - 1;
+    const maxIndex = (props.stateTablePage + 1) * 10;
+    return props.dataFiltered.filter(
+      (item) =>
+        minIndex < props.dataFiltered.indexOf(item) &&
+        props.dataFiltered.indexOf(item) < maxIndex
+    );
+  }
+
   return (
     <React.Fragment>
-      {props.dataOnPageActive.length !== 0 ? (
+      {getDataDisplayedByPage().length !== 0 ? (
         <React.Fragment>
-          {props.dataOnPageActive.map((item, index) => (
+          {getDataDisplayedByPage().map((item, index) => (
             <div key={"listBody-row-" + index} className="listTable-bodyRow">
               <div className="bodyRow-content">
                 <h2>
@@ -25,7 +34,10 @@ const ListTableBody = (props) => {
               <div className="bodyRow-content ">
                 <p>
                   <span className="bodyRowContent-label">Street : </span>
-                  {item.street}
+                  {item.streetNumber +
+                    ", " +
+                    item.street[0].toUpperCase() +
+                    item.street.slice(1)}
                 </p>
                 <p>
                   <span className="bodyRowContent-label">Zip code : </span>
@@ -41,7 +53,7 @@ const ListTableBody = (props) => {
                 </p>
               </div>
               <div className="bodyRow-content--department">
-                <h2>DEPARTMENT : </h2>
+                <h2>- DEPARTMENT -</h2>
                 <p>
                   {item.department[0].toUpperCase() + item.department.slice(1)}
                 </p>
@@ -49,11 +61,9 @@ const ListTableBody = (props) => {
               <div
                 className="bodyRow-content--delete"
                 onClick={() =>
-                  actionDeleteEmployee(
+                  props.actionDeleteListItem(
                     props.dispatch,
-                    props.dataList,
-                    props.dataOnPageActive,
-                    props.setDataOnPageActive,
+                    props.dataNotFiltered,
                     item
                   )
                 }

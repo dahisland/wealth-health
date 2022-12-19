@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { actionAddEmployee } from "../../app/actions/addEmployee.action";
 import { useDispatch } from "react-redux";
-
 import MainNav from "../../components/mainNav/MainNav";
 import Footer from "../../components/footer/Footer";
 import { identityForm, addressForm, departmentForm } from "../../data/formData";

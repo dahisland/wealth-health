@@ -2,6 +2,7 @@ import React from "react";
 
 const ListTableNav = (props) => {
   function navToNextTable() {
+    console.log(props.dataFiltered.length);
     if (
       props.stateTablePage < parseInt((props.dataFiltered.length - 1) / 10, 10)
     ) {

@@ -27,10 +27,16 @@ export const identityForm = [
 
 export const addressForm = [
   {
+    id: "streetNumber",
+    type: "number",
+    label: "Street number",
+    placeholder: "ex : 107",
+  },
+  {
     id: "street",
     type: "text",
     label: "Street",
-    placeholder: "ex : 107, Robinson Street",
+    placeholder: "ex : Robinson Street",
   },
   {
     id: "city",

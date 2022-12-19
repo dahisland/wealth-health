@@ -1,5 +1,4 @@
 import React from "react";
-import { modelNewEmployeeData } from "../../data/modelNewEmployeeData";
 
 const ListTableSearch = (props) => {
   function normalizeText(txt) {
@@ -14,27 +13,23 @@ const ListTableSearch = (props) => {
 
   function filterDataBySearch(e) {
     const inputValue = e.target.value;
-    if (inputValue.length >= 2) {
-      const arraySearchWords = normalizeText(inputValue)
-        .trim()
-        .match(/([0-9a-z]{1,} ?)/g);
+    let normalizeSearchUser = normalizeText(inputValue);
+    let regexWord = /([0-9a-z]{1,} ?)/g;
+    let arraySearchWords = normalizeSearchUser.match(regexWord);
 
-      //callback function
-      const filterRecipes = (obj) => {
-        const itemFormatted = new modelNewEmployeeData(obj);
-        const itemContent = Object.values(itemFormatted.formatForSearch());
-        const itemContentFormatted = normalizeText(itemContent.toString());
-        const testEachSearchWord = (item) => {
-          return itemContentFormatted.match(item);
-        };
-        return arraySearchWords.every(testEachSearchWord);
-      };
-      let arrayFiltered = props.dataList.filter(filterRecipes);
-      props.setDataFiltered(arrayFiltered);
+    if (arraySearchWords && inputValue.length >= 2) {
+      let arraySearchWordsFormatted = arraySearchWords.map((item) =>
+        item.trim()
+      );
       props.setTablePage(0);
+      props.actionSearchFilter(
+        props.dispatch,
+        arraySearchWordsFormatted,
+        props.dataNotFiltered
+      );
     } else {
       props.setTablePage(0);
-      props.setDataFiltered(props.dataList);
+      props.actionSearchFilter(props.dispatch, [""], props.dataNotFiltered);
     }
   }
 

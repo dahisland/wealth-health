@@ -12,6 +12,9 @@
     font-size: 1rem;
     border: 1px solid darken(map-get($colors, lightmouse), 20%);
     outline: 1px solid darken(map-get($colors, lightmouse), 20%);
+    @include responsiveTabloids {
+      width: 100%;
+    }
     &:focus {
       border: 1px solid map-get($colors, logoBlue);
       outline: 3px solid map-get($colors, logoBlue);

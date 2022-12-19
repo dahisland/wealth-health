@@ -18,6 +18,10 @@
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  @include responsiveTabloids {
+    width: 75px;
+    padding: 0.5rem 0.7rem;
+  }
   &:hover {
     background-color: lighten(map-get($colors, logoBlue), 0%);
     font-size: 0.9rem;
@@ -34,4 +38,8 @@
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  @include responsiveTabloids {
+    width: 75px;
+    padding: 0.5rem 0.7rem;
+  }
 }

@@ -38,4 +38,7 @@ main {
 h1 {
   @include resetMargin;
   font-size: map-get($sizes, l);
+  @include responsivePhones {
+    font-size: 1.7rem;
+  }
 }

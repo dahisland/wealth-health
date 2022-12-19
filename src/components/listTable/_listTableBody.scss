@@ -3,7 +3,7 @@
 .listTable-bodyRow {
   color: map-get($colors, logoGrey);
   background-color: map-get($colors, lightmouse);
-  font-size: 1rem;
+  font-size: 0.8rem;
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -11,9 +11,12 @@
   h2 {
     margin: 0;
     margin-bottom: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: map-get($colors, logoBlue);
     font-weight: 700;
+    @include responsivePhones {
+      margin-bottom: 0.1rem;
+    }
   }
   .bodyRow-content {
     display: flex;
@@ -24,6 +27,13 @@
     padding: 0.4rem 1rem;
     margin: 0;
     text-align: left;
+    @include responsiveTabloids {
+      width: 50%;
+      padding: 0.4rem 0.7rem;
+    }
+    @include responsivePhones {
+      width: 100%;
+    }
     p {
       margin: 0;
     }
@@ -33,18 +43,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    p {
-      margin: 0;
-    }
-    h2 {
-      color: map-get($colors, ice);
-    }
+
     border-radius: 0px 10px 0px 0px;
     background-color: map-get($colors, logoBlue);
     color: map-get($colors, ice);
     width: 30%;
     padding: 0.5rem;
     margin: 0;
+    @include responsiveTabloids {
+      width: 100%;
+    }
+    p {
+      margin: 0;
+    }
+    h2 {
+      color: map-get($colors, ice);
+    }
   }
   .bodyRow-content--delete {
     display: flex;

@@ -3,23 +3,36 @@
 .listTable-headRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 1%;
+  gap: 2.5%;
+  justify-content: flex-start;
   align-items: center;
+  @include responsiveTabloids {
+    justify-content: space-between;
+    gap: initial;
+  }
   .headRow-data {
     display: flex;
+    font-size: 0.8rem;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-width: 100px;
+    width: 18%;
     padding: 0.4rem 0rem;
     margin: 0;
     margin-bottom: 0.4rem;
     background-color: map-get($colors, logoBlue);
     color: map-get($colors, ice);
     border-radius: 5px;
+    @include responsiveTabloids {
+      width: 46%;
+    }
+    @include responsivePhones {
+      width: 48%;
+      font-size: 0.7rem;
+    }
   }
   .headRow-iconsSort {
     cursor: pointer;
-    padding: 0rem 0.4rem;
+    padding: 0rem 0.3rem;
   }
 }

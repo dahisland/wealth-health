@@ -8,28 +8,30 @@ const ListTable = (props) => {
   return (
     <div className="list-table">
       <ListTableSearch
-        dataList={props.dataList}
+        dataNotFiltered={props.dataNotFiltered}
         setTablePage={props.setTablePage}
-        dataFiltered={props.dataFiltered}
-        setDataFiltered={props.setDataFiltered}
+        actionSearchFilter={props.actionSearchFilter}
+        dispatch={props.dispatch}
       />
       <div className="listTable-wrapper">
         <ListTableHeader
-          headLabels={props.headLabels}
+          sortsLabels={props.sortsLabels}
+          actionSortAscending={props.actionSortAscending}
+          actionSortDescending={props.actionSortDescending}
           dataFiltered={props.dataFiltered}
-          setDataFiltered={props.setDataFiltered}
+          dispatch={props.dispatch}
         />
         <ListTableNav
           stateTablePage={props.stateTablePage}
           setTablePage={props.setTablePage}
           dataFiltered={props.dataFiltered}
-          setDataFiltered={props.setDataFiltered}
         />
         <ListTableBody
-          dataOnPageActive={props.dataOnPageActive}
-          setDataOnPageActive={props.setDataOnPageActive}
           dispatch={props.dispatch}
-          dataList={props.dataList}
+          dataFiltered={props.dataFiltered}
+          dataNotFiltered={props.dataNotFiltered}
+          stateTablePage={props.stateTablePage}
+          actionDeleteListItem={props.actionDeleteListItem}
         />
       </div>
     </div>
