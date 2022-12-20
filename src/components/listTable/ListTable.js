@@ -3,6 +3,7 @@ import ListTableBody from "./ListTableBody";
 import ListTableHeader from "./ListTableHeader";
 import ListTableNav from "./ListTableNav";
 import ListTableSearch from "./ListTableSearch";
+import PropTypes from "prop-types";
 
 const ListTable = (props) => {
   return (
@@ -36,6 +37,19 @@ const ListTable = (props) => {
       </div>
     </div>
   );
+};
+
+ListTable.propTypes = {
+  dataNotFiltered: PropTypes.array,
+  dataFiltered: PropTypes.array,
+  sortsLabels: PropTypes.array,
+  stateTablePage: PropTypes.number,
+  setTablePage: PropTypes.func,
+  actionSearchFilter: PropTypes.func,
+  actionSortAscending: PropTypes.func,
+  actionSortDescending: PropTypes.func,
+  actionDeleteListItem: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 export default ListTable;

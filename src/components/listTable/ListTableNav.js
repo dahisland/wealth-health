@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ListTableNav = (props) => {
   function navToNextTable() {
@@ -40,6 +41,12 @@ const ListTableNav = (props) => {
       </button>
     </div>
   );
+};
+
+ListTableNav.propTypes = {
+  dataFiltered: PropTypes.array,
+  stateTablePage: PropTypes.number,
+  setTablePage: PropTypes.func,
 };
 
 export default ListTableNav;

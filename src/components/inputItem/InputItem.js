@@ -1,6 +1,7 @@
 import React from "react";
 import { ErrorMessage } from "@hookform/error-message";
 import { useFormContext } from "react-hook-form";
+import PropTypes from "prop-types";
 
 const InputItem = (props) => {
   const { register } = useFormContext();
@@ -44,6 +45,13 @@ const InputItem = (props) => {
       </p>
     </div>
   );
+};
+
+InputItem.propTypes = {
+  itemId: PropTypes.string,
+  itemType: PropTypes.string,
+  itemLabel: PropTypes.string,
+  itemPlaceholder: PropTypes.string,
 };
 
 export default InputItem;

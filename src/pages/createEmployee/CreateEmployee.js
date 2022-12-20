@@ -9,12 +9,12 @@ import { modelNewEmployeeData } from "../../data/modelNewEmployeeData";
 import ScrollingSelect from "../../components/scrollingSelect/ScrollingSelect";
 import InputDatepicker from "../../components/inputDatepicker/InputDatepicker";
 import InputItem from "../../components/inputItem/InputItem";
-import ValidationModale from "../../components/validationModale/ValidationModale";
 import FormButtons from "../../components/formButtons/FormButtons";
+import { ModaleFullscreen } from "modale-fullscreen-customizable";
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
-  const [submitStatus, setSubmitStatus] = useState(false);
+  const [modaleIsOpened, setModaleIsOpened] = useState(false);
   const methods = useForm();
 
   /**
@@ -25,7 +25,8 @@ const CreateEmployee = () => {
   async function submitLoginForm(data) {
     const dataFormatted = new modelNewEmployeeData(data);
     console.log(dataFormatted.formatForSearch());
-    setSubmitStatus(true);
+    setModaleIsOpened(true);
+    console.log(methods.errors);
     methods.reset();
     actionAddEmployee(dispatch, dataFormatted.formatForSearch());
   }
@@ -113,9 +114,9 @@ const CreateEmployee = () => {
 
       <Footer />
 
-      {submitStatus ? (
-        <ValidationModale
-          setSubmitStatus={setSubmitStatus}
+      {modaleIsOpened ? (
+        <ModaleFullscreen
+          eventOnClickIcon={() => setModaleIsOpened(false)}
           idInnerContainer={"modale-inner-container--customize"}
           idModaleIcon={"modale-icon--customize"}
           modaleContent={<p>User successfully created</p>}

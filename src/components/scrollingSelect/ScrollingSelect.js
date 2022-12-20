@@ -1,6 +1,7 @@
 import React from "react";
 import { ErrorMessage } from "@hookform/error-message";
 import { useFormContext } from "react-hook-form";
+import PropTypes from "prop-types";
 
 const ScrollingSelect = (props) => {
   const { register } = useFormContext();
@@ -38,6 +39,12 @@ const ScrollingSelect = (props) => {
       </p>
     </div>
   );
+};
+
+ScrollingSelect.propTypes = {
+  itemId: PropTypes.string,
+  itemLabel: PropTypes.string,
+  itemOptions: PropTypes.array,
 };
 
 export default ScrollingSelect;

@@ -3,6 +3,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import { useFormContext, Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
+import PropTypes from "prop-types";
 
 const InputDatepicker = (props) => {
   const { control } = useFormContext();
@@ -63,6 +64,12 @@ const InputDatepicker = (props) => {
       </p>
     </div>
   );
+};
+
+InputDatepicker.propTypes = {
+  itemId: PropTypes.string,
+  itemLabel: PropTypes.string,
+  itemPlaceholder: PropTypes.string,
 };
 
 export default InputDatepicker;

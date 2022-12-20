@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ListTableBody = (props) => {
   function getDataDisplayedByPage() {
@@ -78,6 +79,14 @@ const ListTableBody = (props) => {
       )}
     </React.Fragment>
   );
+};
+
+ListTableBody.propTypes = {
+  dataNotFiltered: PropTypes.array,
+  dataFiltered: PropTypes.array,
+  stateTablePage: PropTypes.number,
+  actionDeleteListItem: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 export default ListTableBody;

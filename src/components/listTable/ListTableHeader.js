@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 const ListTableHeader = (props) => {
   function sortAscending(itemData) {
@@ -32,6 +33,14 @@ const ListTableHeader = (props) => {
       ))}
     </div>
   );
+};
+
+ListTableHeader.propTypes = {
+  dataFiltered: PropTypes.array,
+  sortsLabels: PropTypes.array,
+  actionSortAscending: PropTypes.func,
+  actionSortDescending: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 export default ListTableHeader;

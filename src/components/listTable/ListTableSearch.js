@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ListTableSearch = (props) => {
   function normalizeText(txt) {
@@ -42,6 +43,13 @@ const ListTableSearch = (props) => {
       />
     </div>
   );
+};
+
+ListTableSearch.propTypes = {
+  dataNotFiltered: PropTypes.array,
+  setTablePage: PropTypes.func,
+  actionSearchFilter: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 export default ListTableSearch;
