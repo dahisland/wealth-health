@@ -115,8 +115,9 @@ const CreateEmployee = () => {
 
       {submitStatus ? (
         <ValidationModale
-          eventOnClick={() => setSubmitStatus(false)}
-          modaleIcon={"X"}
+          setSubmitStatus={setSubmitStatus}
+          idInnerContainer={"modale-inner-container--customize"}
+          idModaleIcon={"modale-icon--customize"}
           modaleContent={<p>User successfully created</p>}
         />
       ) : null}
