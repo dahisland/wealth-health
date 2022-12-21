@@ -91,11 +91,11 @@ const CreateEmployee = () => {
                     itemOptions={item.options}
                     itemErrors={methods.errors}
                     defaultValue={""}
-                    optionDisabledContent={"- - - Select an item - - -"}
+                    optionDisabledContent={"- - - Select a State - - -"}
                     conditionValidation={{
                       required: {
                         value: true,
-                        message: "You must select an option",
+                        message: "You must select a State",
                       },
                     }}
                   />
@@ -111,12 +111,12 @@ const CreateEmployee = () => {
                   itemLabel={item.label}
                   itemOptions={item.options}
                   itemErrors={item.errors}
-                  optionDisabledContent={"- - - Select an item - - -"}
+                  optionDisabledContent={"- - - Select a Department - - -"}
                   defaultValue={""}
                   conditionValidation={{
                     required: {
                       value: true,
-                      message: "You must select an option",
+                      message: "You must select a Department",
                     },
                   }}
                 />

@@ -39,7 +39,7 @@
         border-color: map-get($colors, ice);
       }
       border: none;
-      background-color: map-get($colors, logoBlue);
+      background-color: lighten(map-get($colors, logoBlue), 15%);
       margin-top: -1rem;
     }
     legend {
@@ -68,11 +68,13 @@
 .input-error-message {
   width: 150px;
   margin: 0;
-  padding: 1rem;
+  padding: 0.8rem;
+  text-align: center;
   font-size: map-get($sizes, xs);
   text-align: left;
   color: map-get($colors, blood);
   @include responsiveTabloids {
+    width: 100%;
     text-align: center;
     padding: 0.5rem;
   }
@@ -108,6 +110,11 @@
 .scrollingSelect-errorMessage {
   font-size: map-get($sizes, xs);
   color: map-get($colors, blood);
+  @include responsiveTabloids {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+  }
 }
 
 // Custom style for plugin fullscreen-modale

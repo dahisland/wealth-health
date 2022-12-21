@@ -55,12 +55,12 @@
 .scrollingSelect-errorMessage {
   width: 150px;
   margin: 0;
-  padding: 1rem;
+  padding: 0.8rem;
+  text-align: center;
   font-size: 0.8rem;
   text-align: left;
   color: red;
   @include responsiveTabloids {
-    text-align: center;
     padding: 0.5rem;
   }
 }

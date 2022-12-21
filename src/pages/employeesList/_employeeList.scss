@@ -65,6 +65,9 @@
 
   .bodyRowContent-value {
     color: map-get($colors, logoGrey);
+    @include responsivePhones {
+      text-align: right;
+    }
   }
 
   .bodyRowContent--delete {
