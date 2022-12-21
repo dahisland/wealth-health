@@ -1,0 +1,77 @@
+@import "../../style/utils";
+
+// Style custom for plugin tableList
+.listTable-search {
+  input {
+    color: map-get($colors, logoGrey);
+    border: 1px solid darken(map-get($colors, lightmouse), 20%);
+    outline: 1px solid darken(map-get($colors, lightmouse), 20%);
+    &:focus {
+      border: 1px solid map-get($colors, logoBlue);
+      outline: 2px solid map-get($colors, logoBlue);
+    }
+    &::placeholder {
+      color: darken(map-get($colors, lightmouse), 10%);
+    }
+  }
+}
+
+.listTable-headRow {
+  .headRow-data {
+    background-color: map-get($colors, logoBlue);
+    color: map-get($colors, ice);
+  }
+}
+
+.listTable-bodyRow .bodyRow-content:nth-child(1),
+.bodyRow-content:nth-child(2) {
+  width: 50%;
+  background-color: map-get($colors, logoBlue);
+  @include responsivePhones {
+    width: 100%;
+  }
+  span {
+    width: 50%;
+    color: white;
+  }
+  span:nth-child(2) {
+    font-size: 1.2rem;
+    @include responsivePhones {
+      text-align: right;
+    }
+  }
+}
+
+.nav-arrow {
+  background-color: lighten(map-get($colors, logoBlue), 15%);
+  color: map-get($colors, ice);
+  &:hover {
+    background-color: lighten(map-get($colors, logoBlue), 0%);
+  }
+}
+.nav-arrow--disabled {
+  background-color: lighten(map-get($colors, lightmouse), 5%);
+  color: lighten(map-get($colors, logoGrey), 20%);
+}
+
+.listTable-bodyRow {
+  color: map-get($colors, logoGrey);
+  background-color: map-get($colors, lightmouse);
+
+  .bodyRowContent-label {
+    font-style: italic;
+    color: map-get($colors, logoBlue);
+  }
+
+  .bodyRowContent-value {
+    color: map-get($colors, logoGrey);
+  }
+
+  .bodyRowContent--delete {
+    background-color: lighten(map-get($colors, logoBlue), 15%);
+    color: map-get($colors, ice);
+    &:hover {
+      background-color: lighten(map-get($colors, logoGrey), 15%);
+    }
+  }
+}

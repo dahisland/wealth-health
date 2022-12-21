@@ -11,10 +11,9 @@ export function actionDeleteEmployee(
   employeesData,
   employeeDataToDelete
 ) {
-  const arrayModified = employeesData.filter(
+  const dataUpdated = employeesData.filter(
     (obj) => obj !== employeeDataToDelete
   );
-  console.log(employeeDataToDelete);
-  console.log(arrayModified);
-  dispatch(deleteEmployee(arrayModified));
+
+  dispatch(deleteEmployee(dataUpdated));
 }

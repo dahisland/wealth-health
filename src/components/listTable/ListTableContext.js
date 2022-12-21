@@ -16,8 +16,11 @@ const ListTableContext = (props) => {
         actionOnSearchInactive: props.actionOnSearchInactive,
         actionDeleteListItem: props.actionDeleteListItem,
         tableHeadLabels: props.tableHeadLabels,
+        tableBodyLabels: props.tableBodyLabels,
         actionSortAscending: props.actionSortAscending,
         actionSortDescending: props.actionSortDescending,
+        contentDeleteEntry: props.contentDeleteEntry,
+        contentSearchNotFound: props.contentSearchNotFound,
       }}
     >
       <div className="list-table">
@@ -36,6 +39,8 @@ ListTableContext.propTypes = {
   actionDeleteListItem: PropTypes.func,
   actionOnSearchActive: PropTypes.func,
   actionOnSearchInactive: PropTypes.func,
+  contentDeleteEntry: PropTypes.string,
+  contentSearchNotFound: PropTypes.string,
 };
 
 export default ListTableContext;

@@ -1,4 +1,4 @@
-@import "../../style/utils";
+@import "./listTable-utils";
 
 .listTable-search {
   text-align: left;
@@ -9,18 +9,18 @@
     border-radius: 5px;
     color: map-get($colors, logoGrey);
     font-size: 1rem;
-    border: 1px solid darken(map-get($colors, lightmouse), 20%);
-    outline: 1px solid darken(map-get($colors, lightmouse), 20%);
+    border: 1px solid lightgray;
+    outline: 1px solid lightgray;
     @include responsiveTabloids {
       width: 100%;
     }
     &:focus {
-      border: 1px solid map-get($colors, logoBlue);
-      outline: 3px solid map-get($colors, logoBlue);
+      border: 1px solid mediumpurple;
+      outline: 2px solid mediumpurple;
     }
     &::placeholder {
       font-size: 0.8rem;
-      color: darken(map-get($colors, lightmouse), 10%);
+      color: lightgray;
     }
   }
 }

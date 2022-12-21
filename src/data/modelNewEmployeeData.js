@@ -16,18 +16,41 @@ export class modelNewEmployeeData {
     this.department = data.department;
   }
 
-  formatForSearch() {
+  formatForDisplay() {
     return {
-      firstName: this.firstName.toLowerCase(),
-      lastName: this.lastName.toLowerCase(),
+      firstName: this.firstName[0].toUpperCase() + this.firstName.slice(1),
+      lastName: this.lastName.toUpperCase(),
       dateOfBirth: new Date(this.dateOfBirth).getTime(),
       startDate: new Date(this.startDate).getTime(),
-      streetNumber: this.streetNumber,
-      street: this.street.toLowerCase(),
-      city: this.city.toLowerCase(),
-      state: this.state.toLowerCase(),
-      zipCode: this.zipCode,
-      department: this.department.toLowerCase(),
+      streetNumber: String(this.streetNumber),
+      street: this.street[0].toUpperCase() + this.street.slice(1),
+      city: this.city.toUpperCase(),
+      state: this.state.toUpperCase(),
+      zipCode: String(
+        new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(
+          parseInt(this.zipCode)
+        )
+      ),
+      department: this.department.toUpperCase(),
+    };
+  }
+
+  formatForSearch() {
+    return {
+      firstName: this.firstName[0].toUpperCase() + this.firstName.slice(1),
+      lastName: this.lastName.toUpperCase(),
+      dateOfBirth: new Date(this.dateOfBirth).toLocaleDateString("fr"),
+      startDate: new Date(this.startDate).toLocaleDateString("fr"),
+      streetNumber: String(this.streetNumber),
+      street: this.street[0].toUpperCase() + this.street.slice(1),
+      city: this.city.toUpperCase(),
+      state: this.state.toUpperCase(),
+      zipCode: String(
+        new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(
+          parseInt(this.zipCode)
+        )
+      ),
+      department: this.department.toUpperCase(),
     };
   }
 }

@@ -6,22 +6,17 @@ import PropTypes from "prop-types";
 const ScrollingSelect = (props) => {
   const { register } = useFormContext();
   return (
-    <div className="newEmployeeForm_item">
+    <div className="scrollingSelect-container">
       <label htmlFor={props.itemId}>{props.itemLabel + " : "}</label>
       <select
         name={props.itemId}
         id={props.itemId}
-        defaultValue={""}
-        className={"employeeFormItem-input"}
-        {...register(props.itemId, {
-          required: {
-            value: true,
-            message: "You must select an option",
-          },
-        })}
+        defaultValue={props.defaultValue}
+        className={"scrollingSelect-scrollingMenu"}
+        {...register(props.itemId, props.conditionValidation)}
       >
-        <option value="" disabled className="default-option">
-          - - - Select an item - - -
+        <option value="" disabled className="scrollingSelect-defaultOption">
+          {props.optionDisabledContent}
         </option>
         {props.itemOptions
           .sort((a, b) => (a.name < b.name ? -1 : 1))
@@ -34,7 +29,7 @@ const ScrollingSelect = (props) => {
             </option>
           ))}
       </select>
-      <p className="input-error-message">
+      <p className="scrollingSelect-errorMessage">
         <ErrorMessage errors={props.itemErrors} name={props.itemId} />
       </p>
     </div>

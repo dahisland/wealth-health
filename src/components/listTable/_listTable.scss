@@ -1,4 +1,4 @@
-@import "../../style/utils";
+@import "./listTable-utils";
 
 // Grid
 .list-table {
@@ -20,13 +20,4 @@
   grid-template-columns: 100%;
   grid-gap: 10px;
   row-gap: 15px;
-}
-
-.bodyRowContent-name {
-  font-weight: 700;
-}
-
-.bodyRowContent-label {
-  font-style: italic;
-  color: map-get($colors, logoBlue);
 }

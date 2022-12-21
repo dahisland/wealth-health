@@ -1,4 +1,4 @@
-@import "../../style/utils";
+@import "./listTable-utils";
 
 .listTable-headRow {
   display: flex;
@@ -20,8 +20,8 @@
     padding: 0.4rem 0rem;
     margin: 0;
     margin-bottom: 0.4rem;
-    background-color: map-get($colors, logoBlue);
-    color: map-get($colors, ice);
+    background-color: lighten(grey, 30%);
+    color: white;
     border-radius: 5px;
     @include responsiveTabloids {
       width: 46%;

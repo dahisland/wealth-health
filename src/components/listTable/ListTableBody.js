@@ -5,7 +5,9 @@ const ListTableBody = () => {
   const { dataFiltered } = useContext(tableListContext);
   const { stateTablePage } = useContext(tableListContext);
   const { actionDeleteListItem } = useContext(tableListContext);
-  const { tableHeadLabels } = useContext(tableListContext);
+  const { tableBodyLabels } = useContext(tableListContext);
+  const { contentDeleteEntry } = useContext(tableListContext);
+  const { contentSearchNotFound } = useContext(tableListContext);
 
   function getDataDisplayedByPage() {
     const minIndex = stateTablePage * 10 - 1;
@@ -23,70 +25,36 @@ const ListTableBody = () => {
         <React.Fragment>
           {getDataDisplayedByPage().map((item, index) => (
             <div key={"listBody-row-" + index} className="listTable-bodyRow">
-              <div className="bodyRow-content">
-                <h2>
-                  {item.lastName.toUpperCase()}{" "}
-                  {item.firstName[0].toUpperCase() + item.firstName.slice(1)}
-                </h2>
-                <p>
-                  <span className="bodyRowContent-label">
-                    {tableHeadLabels[2].label + " : "}
+              {Object.entries(item).map((keyValue, index) => (
+                <p
+                  key={"bodyRowContent-" + index}
+                  className={"bodyRow-content bodyRowContent-" + keyValue[0]}
+                >
+                  {tableBodyLabels.find((tab) => tab.keyRef === keyValue[0]) ? (
+                    <span className="bodyRowContent-label">
+                      {tableBodyLabels.find((tab) => tab.keyRef === keyValue[0])
+                        .label + " : "}
+                    </span>
+                  ) : null}
+                  <span className="bodyRowContent-value">
+                    {typeof keyValue[1] === "number"
+                      ? new Date(keyValue[1]).toLocaleDateString("fr")
+                      : keyValue[1]}
                   </span>
-                  {new Date(item.dateOfBirth).toLocaleDateString("fr")}
                 </p>
-                <p>
-                  <span className="bodyRowContent-label">
-                    {tableHeadLabels[3].label + " : "}
-                  </span>
-                  {new Date(item.startDate).toLocaleDateString("fr")}
-                </p>
-              </div>
-              <div className="bodyRow-content ">
-                <p>
-                  <span className="bodyRowContent-label">
-                    {tableHeadLabels[4].label + " : "}
-                  </span>
-                  {item.streetNumber +
-                    ", " +
-                    item.street[0].toUpperCase() +
-                    item.street.slice(1)}
-                </p>
-                <p>
-                  <span className="bodyRowContent-label">
-                    {tableHeadLabels[5].label + " : "}
-                  </span>
-                  {item.zipCode}
-                </p>
-                <p>
-                  <span className="bodyRowContent-label">
-                    {tableHeadLabels[6].label + " : "}
-                  </span>
-                  {item.city[0].toUpperCase() + item.city.slice(1)}
-                </p>
-                <p>
-                  <span className="bodyRowContent-label">
-                    {tableHeadLabels[7].label + " : "}
-                  </span>
-                  {item.state.toUpperCase()}
-                </p>
-              </div>
-              <div className="bodyRow-content--department">
-                <h2>{tableHeadLabels[8].label + " : "}</h2>
-                <p>
-                  {item.department[0].toUpperCase() + item.department.slice(1)}
-                </p>
-              </div>
+              ))}
               <div
-                className="bodyRow-content--delete"
+                className="bodyRowContent--delete"
+                id={"bodyRowContent-delete-" + index}
                 onClick={() => actionDeleteListItem(item)}
               >
-                Delete this entry
+                {contentDeleteEntry}
               </div>
             </div>
           ))}
         </React.Fragment>
       ) : (
-        <div>No data employee have been found</div>
+        <div>{contentSearchNotFound}</div>
       )}
     </React.Fragment>
   );

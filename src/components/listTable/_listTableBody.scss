@@ -1,82 +1,75 @@
-@import "../../style/utils";
+@import "./listTable-utils";
 
 .listTable-bodyRow {
-  color: map-get($colors, logoGrey);
-  background-color: map-get($colors, lightmouse);
+  color: white;
+  background-color: lighten(deepskyblue, 20%);
   font-size: 0.8rem;
   border-radius: 10px;
+  overflow: hidden;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  h2 {
-    margin: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-    color: map-get($colors, logoBlue);
-    font-weight: 700;
-    @include responsivePhones {
-      margin-bottom: 0.1rem;
-    }
-  }
+  align-items: center;
   .bodyRow-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    border-radius: 10px;
-    width: 33%;
-    padding: 0.4rem 1rem;
+    align-items: center;
+    width: 50%;
+    padding: 0.3rem 0.5rem;
     margin: 0;
     text-align: left;
     @include responsiveTabloids {
-      width: 50%;
-      padding: 0.4rem 0.7rem;
+      padding: 0.3rem 0.7rem;
     }
     @include responsivePhones {
       width: 100%;
+      padding: 0.2rem 0.6rem;
     }
     p {
       margin: 0;
     }
   }
 
-  .bodyRow-content--department {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    border-radius: 0px 10px 0px 0px;
-    background-color: map-get($colors, logoBlue);
-    color: map-get($colors, ice);
-    width: 30%;
-    padding: 0.5rem;
-    margin: 0;
-    @include responsiveTabloids {
-      width: 100%;
-    }
-    p {
-      margin: 0;
-    }
-    h2 {
-      color: map-get($colors, ice);
-    }
-  }
-  .bodyRow-content--delete {
+  .bodyRowContent--delete {
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size: 0.7rem;
     align-items: center;
     border-radius: 0px 0px 10px 10px;
-    background-color: lighten(map-get($colors, logoBlue), 15%);
-    color: map-get($colors, ice);
+    background-color: lighten(deepskyblue, 35%);
+    color: mediumpurple;
     width: 100%;
     height: 22px;
     padding: 0.2rem;
     margin: 0;
+    margin-top: 10px;
     cursor: pointer;
     &:hover {
-      background-color: lighten(map-get($colors, logoGrey), 15%);
+      background-color: lighten(mediumpurple, 5%);
+      color: white;
       font-size: 0.8rem;
     }
+    @include responsivePhones {
+      align-items: flex-start;
+      padding-left: 0.6rem;
+    }
+  }
+}
+
+.bodyRowContent-value {
+  @include responsivePhones {
+    width: 60%;
+    text-align: center;
+  }
+}
+
+.bodyRowContent-label {
+  font-style: italic;
+  color: darken(deepskyblue, 15%);
+  @include responsivePhones {
+    width: 40%;
+    text-align: left;
   }
 }

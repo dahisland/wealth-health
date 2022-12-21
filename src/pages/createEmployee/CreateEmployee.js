@@ -24,11 +24,11 @@ const CreateEmployee = () => {
    */
   async function submitLoginForm(data) {
     const dataFormatted = new modelNewEmployeeData(data);
-    console.log(dataFormatted.formatForSearch());
+    console.log(dataFormatted.formatForDisplay());
     setModaleIsOpened(true);
     console.log(methods.errors);
     methods.reset();
-    actionAddEmployee(dispatch, dataFormatted.formatForSearch());
+    actionAddEmployee(dispatch, dataFormatted.formatForDisplay());
   }
 
   function resetAll() {
@@ -90,6 +90,14 @@ const CreateEmployee = () => {
                     itemLabel={item.label}
                     itemOptions={item.options}
                     itemErrors={methods.errors}
+                    defaultValue={""}
+                    optionDisabledContent={"- - - Select an item - - -"}
+                    conditionValidation={{
+                      required: {
+                        value: true,
+                        message: "You must select an option",
+                      },
+                    }}
                   />
                 )
               )}
@@ -103,6 +111,14 @@ const CreateEmployee = () => {
                   itemLabel={item.label}
                   itemOptions={item.options}
                   itemErrors={item.errors}
+                  optionDisabledContent={"- - - Select an item - - -"}
+                  defaultValue={""}
+                  conditionValidation={{
+                    required: {
+                      value: true,
+                      message: "You must select an option",
+                    },
+                  }}
                 />
               ))}
             </div>

@@ -78,13 +78,39 @@
   }
 }
 
-.default-option {
-  color: map-get($colors, logoBlue);
-  font-style: italic;
-  font-weight: 700;
+// Custom style for plugin scrollingSelect
+
+.scrollingSelect-container {
+  .scrollingSelect-scrollingMenu {
+    border: 2px solid map-get($colors, logoGrey);
+    @include fontFamily;
+    font-size: map-get($sizes, base);
+    font-weight: 700;
+    color: map-get($colors, logoBlue);
+    background-color: map-get($colors, ice);
+    &:focus {
+      border: 1px solid map-get($colors, logoBlue);
+      outline: 3px solid map-get($colors, logoBlue);
+    }
+    &::placeholder {
+      color: lighten(map-get($colors, logoGrey), 0%);
+    }
+  }
+  label {
+    color: map-get($colors, logoBlue);
+  }
 }
 
-// modale
+.scrollingSelect-defaultOption {
+  color: map-get($colors, logoBlue);
+}
+
+.scrollingSelect-errorMessage {
+  font-size: map-get($sizes, xs);
+  color: map-get($colors, blood);
+}
+
+// Custom style for plugin fullscreen-modale
 
 #modale-inner-container--customize {
   background-color: map-get($colors, logoBlue);
