@@ -1,31 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { tableListContext } from "./ListTableContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
 
-const ListTableHeader = (props) => {
-  function sortAscending(itemData) {
-    props.actionSortAscending(props.dispatch, props.dataFiltered, itemData);
-  }
-
-  function sortDescending(itemData) {
-    props.actionSortDescending(props.dispatch, props.dataFiltered, itemData);
-  }
+const ListTableHeader = () => {
+  const { tableHeadLabels } = useContext(tableListContext);
+  const { actionSortAscending } = useContext(tableListContext);
+  const { actionSortDescending } = useContext(tableListContext);
 
   return (
     <div className="listTable-headRow">
-      {props.sortsLabels.map((item, index) => (
+      {tableHeadLabels.map((item, index) => (
         <p key={"table-head-" + index} className={"headRow-data"}>
           <span
             className="headRow-iconsSort"
-            onClick={() => sortAscending(item)}
+            onClick={() => actionSortAscending(item)}
           >
             <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
           </span>
           <span>{item.label}</span>
           <span
             className="headRow-iconsSort"
-            onClick={() => sortDescending(item)}
+            onClick={() => actionSortDescending(item)}
           >
             <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
           </span>
@@ -33,14 +29,6 @@ const ListTableHeader = (props) => {
       ))}
     </div>
   );
-};
-
-ListTableHeader.propTypes = {
-  dataFiltered: PropTypes.array,
-  sortsLabels: PropTypes.array,
-  actionSortAscending: PropTypes.func,
-  actionSortDescending: PropTypes.func,
-  dispatch: PropTypes.func,
 };
 
 export default ListTableHeader;

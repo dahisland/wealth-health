@@ -1,37 +1,36 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
+import { tableListContext } from "./ListTableContext";
 
-const ListTableNav = (props) => {
+const ListTableNav = () => {
+  const { stateTablePage } = useContext(tableListContext);
+  const { setTablePage } = useContext(tableListContext);
+  const { dataFiltered } = useContext(tableListContext);
+
   function navToNextTable() {
-    console.log(props.dataFiltered.length);
-    if (
-      props.stateTablePage < parseInt((props.dataFiltered.length - 1) / 10, 10)
-    ) {
-      props.setTablePage(props.stateTablePage + 1);
+    console.log(dataFiltered.length);
+    if (stateTablePage < parseInt((dataFiltered.length - 1) / 10, 10)) {
+      setTablePage(stateTablePage + 1);
     }
   }
 
   function navToPreviousTable() {
-    if (props.stateTablePage > 0) {
-      props.setTablePage(props.stateTablePage - 1);
+    if (stateTablePage > 0) {
+      setTablePage(stateTablePage - 1);
     }
   }
   return (
     <div className="listTable-nav">
       <button
-        className={
-          props.stateTablePage === 0 ? "nav-arrow--disabled" : "nav-arrow"
-        }
+        className={stateTablePage === 0 ? "nav-arrow--disabled" : "nav-arrow"}
         onClick={() => navToPreviousTable()}
       >
         Previous
       </button>
 
-      <p>{props.stateTablePage + 1}</p>
+      <p>{stateTablePage + 1}</p>
       <button
         className={
-          props.stateTablePage >=
-          parseInt((props.dataFiltered.length - 1) / 10, 10)
+          stateTablePage >= parseInt((dataFiltered.length - 1) / 10, 10)
             ? "nav-arrow--disabled"
             : "nav-arrow"
         }
@@ -41,12 +40,6 @@ const ListTableNav = (props) => {
       </button>
     </div>
   );
-};
-
-ListTableNav.propTypes = {
-  dataFiltered: PropTypes.array,
-  stateTablePage: PropTypes.number,
-  setTablePage: PropTypes.func,
 };
 
 export default ListTableNav;

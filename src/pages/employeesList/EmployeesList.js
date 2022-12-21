@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../components/footer/Footer";
 import MainNav from "../../components/mainNav/MainNav";
 import { useSelector, useDispatch } from "react-redux";
 import { tableLabels } from "../../data/tableData";
-import ListTable from "../../components/listTable/ListTable";
+import ListTableContext from "../../components/listTable/ListTableContext";
+import ListTableHeader from "../../components/listTable/ListTableHeader";
+import ListTableSearch from "../../components/listTable/ListTableSearch";
+import ListTableBody from "../../components/listTable/ListTableBody";
+import ListTableNav from "../../components/listTable/ListTableNav";
 import { actionFilterEmployeeList } from "../../app/actions/filterEmployeeList.action";
 import {
   actionSortAscending,
@@ -16,29 +20,50 @@ const EmployeesList = () => {
     (state) => state.employees
   );
   const dispatch = useDispatch();
-  const [tablePage, setTablePage] = useState(0);
+
+  function sortAscending(itemData) {
+    actionSortAscending(dispatch, listFiltered, itemData);
+  }
+
+  function sortDescending(itemData) {
+    actionSortDescending(dispatch, listFiltered, itemData);
+  }
+
+  function deleteOneEmployee(item) {
+    actionDeleteEmployee(dispatch, employeesList, item);
+  }
+
+  function filterDataOnSearch(arrayWordsSearched) {
+    actionFilterEmployeeList(dispatch, arrayWordsSearched, employeesList);
+  }
+
+  function noFilterDataOnSearch() {
+    actionFilterEmployeeList(dispatch, [""], employeesList);
+  }
 
   return (
     <div className="currentPage">
       <MainNav />
       <main>
         <h1>EMPLOYEES LIST</h1>
-        <ListTable
-          dispatch={dispatch}
+        <ListTableContext
           dataFiltered={listFiltered}
-          dataNotFiltered={employeesList}
-          // props for state display limited items data by page
-          stateTablePage={tablePage}
-          setTablePage={setTablePage}
           // props to filter data with searchbar
-          actionSearchFilter={actionFilterEmployeeList}
+          numberSearchOnActive={2}
+          actionOnSearchActive={filterDataOnSearch}
+          actionOnSearchInactive={noFilterDataOnSearch}
           // props to delete an item list
-          actionDeleteListItem={actionDeleteEmployee}
+          actionDeleteListItem={deleteOneEmployee}
           // props for sorts header
-          sortsLabels={tableLabels}
-          actionSortAscending={actionSortAscending}
-          actionSortDescending={actionSortDescending}
-        />
+          tableHeadLabels={tableLabels}
+          actionSortAscending={sortAscending}
+          actionSortDescending={sortDescending}
+        >
+          <ListTableSearch />
+          <ListTableHeader />
+          <ListTableNav />
+          <ListTableBody />
+        </ListTableContext>
       </main>
       <Footer />
     </div>

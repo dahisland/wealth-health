@@ -1,7 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
+import { tableListContext } from "./ListTableContext";
 
-const ListTableSearch = (props) => {
+const ListTableSearch = () => {
+  const { actionOnSearchActive } = useContext(tableListContext);
+  const { actionOnSearchInactive } = useContext(tableListContext);
+  const { numberSearchOnActive } = useContext(tableListContext);
+  const { setTablePage } = useContext(tableListContext);
+
   function normalizeText(txt) {
     let normalizedText = txt
       .normalize("NFD")
@@ -18,19 +23,15 @@ const ListTableSearch = (props) => {
     let regexWord = /([0-9a-z]{1,} ?)/g;
     let arraySearchWords = normalizeSearchUser.match(regexWord);
 
-    if (arraySearchWords && inputValue.length >= 2) {
+    if (arraySearchWords && inputValue.length >= numberSearchOnActive) {
       let arraySearchWordsFormatted = arraySearchWords.map((item) =>
         item.trim()
       );
-      props.setTablePage(0);
-      props.actionSearchFilter(
-        props.dispatch,
-        arraySearchWordsFormatted,
-        props.dataNotFiltered
-      );
+      setTablePage(0);
+      actionOnSearchActive(arraySearchWordsFormatted);
     } else {
-      props.setTablePage(0);
-      props.actionSearchFilter(props.dispatch, [""], props.dataNotFiltered);
+      setTablePage(0);
+      actionOnSearchInactive();
     }
   }
 
@@ -43,13 +44,6 @@ const ListTableSearch = (props) => {
       />
     </div>
   );
-};
-
-ListTableSearch.propTypes = {
-  dataNotFiltered: PropTypes.array,
-  setTablePage: PropTypes.func,
-  actionSearchFilter: PropTypes.func,
-  dispatch: PropTypes.func,
 };
 
 export default ListTableSearch;
