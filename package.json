@@ -1,6 +1,7 @@
 {
   "name": "hrnet-react-frontend",
   "version": "0.1.0",
+  "homepage": "https://dahisland.github.io/MyriamMornet_14_122022",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -11,6 +12,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^4.0.0",
     "modale-fullscreen-customizable": "^0.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -26,6 +28,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
