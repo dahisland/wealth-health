@@ -33,6 +33,7 @@ I developped my own library for one of them, published on official website [NPM]
 ## REACT LIBRARY COMPONENT DEVELOPPED AND PUBLISHED BY ME
 
 - [modale-fullscreen-customizable](https://www.npmjs.com/package/modale-fullscreen-customizable?activeTab=readme)
+- [Repository for this lib](https://github.com/dahisland/fullscreen-modale-customizable-lib)
 
 ## INSTALLATION :
 
