@@ -40,16 +40,14 @@ const InputDatepicker = (props) => {
             onChange={onChange}
             onBlur={onBlur}
             selected={value}
-            minDate={new Date("01-01-1950")}
-            maxDate={new Date()}
             dateFormat="dd/MM/yyyy"
             placeholderText="dd/mm/yyyy"
             strictParsing
             isClearable
             todayButton="Today"
             peekNextMonth
-            showMonthDropdown
             showYearDropdown
+            showMonthDropdown
             dropdownMode="select"
             customInput={<ExampleCustomInput />}
           >

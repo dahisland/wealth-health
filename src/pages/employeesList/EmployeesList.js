@@ -50,7 +50,7 @@ const EmployeesList = () => {
   return (
     <div className="currentPage">
       <MainNav />
-      <main>
+      <main className="pageList_main">
         <h1>EMPLOYEES LIST</h1>
         <ListTableContext
           //props for content Table

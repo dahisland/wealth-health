@@ -5,7 +5,7 @@
 }
 
 html {
-  color: map-get($colors, logoGrey);
+  color: map-get($colors, darkLeaf);
   @include fontFamily;
   font-size: 16px;
 }
@@ -16,18 +16,15 @@ body {
 }
 
 .currentPage {
-  @include defaultMargin;
   text-align: center;
   font-size: map-get($sizes, base);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  @include responsiveTabloids {
-    padding: 10px 0px 0px 0px;
-  }
 }
 
 main {
+  @include defaultMargin;
   padding-top: 40px;
   flex-grow: 1;
   @include responsiveTabloids {

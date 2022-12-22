@@ -135,7 +135,7 @@ const CreateEmployee = () => {
           eventOnClickIcon={() => setModaleIsOpened(false)}
           idInnerContainer={"modale-inner-container--customize"}
           idModaleIcon={"modale-icon--customize"}
-          modaleContent={<p>User successfully created</p>}
+          modaleContent={<p>Employee successfully created !</p>}
         />
       ) : null}
     </div>

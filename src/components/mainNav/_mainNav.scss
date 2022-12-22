@@ -1,62 +1,77 @@
 @import "../../style/utils";
 
 .pageHeader {
+  width: 100%;
+  background-color: map-get($colors, lightLeaf);
+  background-image: url("../../assets/logo-wealth-health-transparent.png");
+  background-size: 400px;
+  background-position: center;
+}
+
+.pageHeader-container {
+  padding: 10px 4% 20px 4%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   @include responsiveTabloids {
+    padding: 10px 4% 0px 4%;
     flex-direction: column;
+    align-items: center;
   }
   img {
-    width: 200px;
+    width: 100%;
+    border-radius: 20%;
+    object-fit: contain;
+  }
+  h1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: map-get($colors, ice);
   }
 }
 
 .pageHeader_mainNav {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   justify-content: space-around;
   border-radius: 5px;
   @include responsiveTabloids {
     width: 100%;
-    padding: 20px;
-    gap: 20px;
-    background-color: map-get($colors, lightmouse);
+    padding: 15px;
+    gap: 10px;
   }
 
   a {
-    width: 212px;
+    width: 170px;
     border-bottom: 3px solid transparent;
-    padding: 25px 25px;
+    padding: 0.8rem 1rem;
     margin-left: 3px;
     text-decoration: none;
     font-size: map-get($sizes, m);
     border-radius: 5px;
+    @include responsiveTabloids {
+      font-size: map-get($sizes, base);
+      padding: 0.7rem 0.8rem;
+    }
   }
 
   .mainNav_link {
-    color: map-get($colors, logoGrey);
+    color: map-get($colors, darkLeaf);
     background-color: map-get($colors, ice);
     transition: all 700ms;
+    border-bottom: 3px solid map-get($colors, darkLeaf);
     @include responsiveTabloids {
-      box-shadow: 2px 3px 5px map-get($colors, logoBlue);
       background-color: map-get($colors, ice);
     }
     &:hover {
-      color: map-get($colors, logoBlue);
-      background-color: map-get($colors, lightmouse);
-      border-bottom: 3px solid map-get($colors, logoBlue);
-      @include responsiveTabloids {
-        color: map-get($colors, ice);
-        background-color: map-get($colors, logoGrey);
-        border-bottom: 3px solid map-get($colors, ice);
-        box-shadow: 2px 3px 5px map-get($colors, logoGrey);
-      }
+      color: map-get($colors, darkLeaf);
+      background-color: map-get($colors, whiteGreen);
     }
   }
   .mainNav_link--active {
     color: map-get($colors, ice);
-    background-color: map-get($colors, logoBlue);
-    box-shadow: inset 0px 0px 10px 0px map-get($colors, ice);
+    background-color: map-get($colors, darkLeaf);
+    box-shadow: inset 0px 0px 10px 0px map-get($colors, whiteGreen);
   }
 }

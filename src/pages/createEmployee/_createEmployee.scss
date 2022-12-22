@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  h1 {
+    color: map-get($colors, lightLeaf);
+  }
 }
 
 .newEmployee_form {
@@ -21,15 +24,14 @@
   fieldset {
     padding: 3rem 1rem;
     margin: 1rem 0rem;
-    color: map-get($colors, logoBlue);
-    border: 4px double map-get($colors, logoBlue);
+    color: map-get($colors, darkLeaf);
+    border: 4px double map-get($colors, lightLeaf);
     border-radius: 10px;
     @include responsiveTabloids {
       padding: 1.5rem 4%;
       width: 100%;
       border-radius: 0px;
       label {
-        color: map-get($colors, ice);
       }
       #streetNumber,
       #street,
@@ -39,13 +41,16 @@
         border-color: map-get($colors, ice);
       }
       border: none;
-      background-color: lighten(map-get($colors, logoBlue), 15%);
+      border-radius: 10px;
+      background-color: map-get($colors, lightMouse);
       margin-top: -1rem;
     }
     legend {
+      color: map-get($colors, lightLeaf);
       font-size: map-get($sizes, l);
+      margin: 0 auto;
       @include responsiveTabloids {
-        color: map-get($colors, ice);
+        color: map-get($colors, darkLeaf);
         padding-top: 50px;
       }
     }
@@ -84,27 +89,24 @@
 
 .scrollingSelect-container {
   .scrollingSelect-scrollingMenu {
-    border: 2px solid map-get($colors, logoGrey);
+    border: 2px solid map-get($colors, darkLeaf);
     @include fontFamily;
     font-size: map-get($sizes, base);
     font-weight: 700;
-    color: map-get($colors, logoBlue);
+    color: map-get($colors, darkLeaf);
     background-color: map-get($colors, ice);
     &:focus {
-      border: 1px solid map-get($colors, logoBlue);
-      outline: 3px solid map-get($colors, logoBlue);
-    }
-    &::placeholder {
-      color: lighten(map-get($colors, logoGrey), 0%);
+      border: 1px solid map-get($colors, darkLeaf);
+      outline: 3px solid map-get($colors, darkLeaf);
     }
   }
   label {
-    color: map-get($colors, logoBlue);
+    color: map-get($colors, darkLeaf);
   }
 }
 
 .scrollingSelect-defaultOption {
-  color: map-get($colors, logoBlue);
+  color: map-get($colors, lightLeaf);
 }
 
 .scrollingSelect-errorMessage {
@@ -120,14 +122,21 @@
 // Custom style for plugin fullscreen-modale
 
 #modale-inner-container--customize {
-  background-color: map-get($colors, logoBlue);
+  width: 40%;
+  background-color: map-get($colors, lightLeaf);
   color: map-get($colors, ice);
-  outline: 2px solid white;
+  outline: 4px solid map-get($colors, ice);
+  @include responsiveTabloids {
+    width: 60%;
+  }
+  @include responsivePhones {
+    width: 90%;
+  }
 }
 
 #modale-icon--customize {
   background-color: map-get($colors, ice);
-  color: map-get($colors, logoBlue);
+  color: map-get($colors, lightLeaf);
   width: 17px;
   height: 17px;
   line-height: 17px;
