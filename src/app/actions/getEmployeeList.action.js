@@ -2,9 +2,9 @@ import { getEmployeeList } from "../slides/employees.slice";
 import { modelNewEmployeeData } from "../../data/modelNewEmployeeData";
 
 /**
- * Redux action to add data of new employee
+ * Redux action to get and format data of new employee
  * @param {func} dispatch - Hook to update redux store
- * @param {object} employeeDataItem - Object containing new employee data item
+ * @param {array} mockData - Object containing data received by a call api
  */
 export function actionGetEmployeeList(dispatch, mockData) {
   const arrayDataFormatted = [];

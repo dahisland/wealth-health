@@ -6,8 +6,9 @@ const Error404 = () => {
   return (
     <div className="currentPage">
       <MainNav />
-      <main>
+      <main className="pageError_main">
         <h1>ERROR 404</h1>
+        <p>Sorry ! The page you looking for doesn't exist...</p>
       </main>
       <Footer />
     </div>

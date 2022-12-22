@@ -33,6 +33,7 @@ const ListTableContext = (props) => {
 ListTableContext.propTypes = {
   dataFiltered: PropTypes.array,
   tableHeadLabels: PropTypes.array,
+  tableBodyLabels: PropTypes.array,
   numberSearchOnActive: PropTypes.number,
   actionSortAscending: PropTypes.func,
   actionSortDescending: PropTypes.func,

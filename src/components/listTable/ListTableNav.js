@@ -6,6 +6,7 @@ const ListTableNav = () => {
   const { setTablePage } = useContext(tableListContext);
   const { dataFiltered } = useContext(tableListContext);
 
+  // Change page number depending on array data length
   function navToNextTable() {
     console.log(dataFiltered.length);
     if (stateTablePage < parseInt((dataFiltered.length - 1) / 10, 10)) {
@@ -13,6 +14,7 @@ const ListTableNav = () => {
     }
   }
 
+  // Change page number depending on array data length
   function navToPreviousTable() {
     if (stateTablePage > 0) {
       setTablePage(stateTablePage - 1);

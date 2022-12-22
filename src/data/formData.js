@@ -1,3 +1,4 @@
+// Static data for fiels Identity form
 export const identityForm = [
   {
     id: "firstName",
@@ -25,6 +26,7 @@ export const identityForm = [
   },
 ];
 
+// Static data for fields Address form
 export const addressForm = [
   {
     id: "streetNumber",
@@ -295,6 +297,7 @@ export const addressForm = [
   },
 ];
 
+// Static data for field Department form
 export const departmentForm = [
   {
     id: "department",

@@ -7,6 +7,7 @@ const ListTableSearch = () => {
   const { numberSearchOnActive } = useContext(tableListContext);
   const { setTablePage } = useContext(tableListContext);
 
+  // Function to format search data received
   function normalizeText(txt) {
     let normalizedText = txt
       .normalize("NFD")
@@ -17,6 +18,8 @@ const ListTableSearch = () => {
     return normalizedText;
   }
 
+  // Collect and format input data value on change,
+  // Then isolate each word in an array who can be used to filter array data containing all these words
   function filterDataBySearch(e) {
     const inputValue = e.target.value;
     let normalizeSearchUser = normalizeText(inputValue);

@@ -12,6 +12,7 @@ export function actionFilterEmployeeList(
   arrayResearch,
   employeesData
 ) {
+  // function to format each data element to compare with array of words search data
   function normalizeText(txt) {
     let normalizedText = txt
       .normalize("NFD")
@@ -22,6 +23,7 @@ export function actionFilterEmployeeList(
     return normalizedText;
   }
 
+  // Algoritm to return data filtered by the search data received
   const filterEmployeesList = (obj) => {
     const itemFormatted = new modelNewEmployeeData(obj);
     const itemContent = Object.values(itemFormatted.formatForSearch());

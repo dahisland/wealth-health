@@ -1,0 +1,7 @@
+@import "../../style/utils";
+
+.pageError_main {
+  h1 {
+    color: map-get($colors, lightLeaf);
+  }
+}

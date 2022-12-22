@@ -8,6 +8,8 @@ import PropTypes from "prop-types";
 const InputDatepicker = (props) => {
   const { control } = useFormContext();
 
+  // Customized input for the component library datepicker
+  // Is passed to the component by props
   const ExampleCustomInput = React.forwardRef(({ value, onClick }, ref) => (
     <input
       type="text"

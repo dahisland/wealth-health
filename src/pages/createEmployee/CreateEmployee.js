@@ -26,11 +26,14 @@ const CreateEmployee = () => {
     const dataFormatted = new modelNewEmployeeData(data);
     console.log(dataFormatted.formatForDisplay());
     setModaleIsOpened(true);
-    console.log(methods.errors);
     methods.reset();
     actionAddEmployee(dispatch, dataFormatted.formatForDisplay());
   }
 
+  /**
+   * Function to reset form fields
+   *
+   */
   function resetAll() {
     methods.clearErrors();
     methods.reset();
