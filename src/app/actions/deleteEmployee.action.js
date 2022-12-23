@@ -9,11 +9,27 @@ import { deleteEmployee } from "../slides/employees.slice";
 export function actionDeleteEmployee(
   dispatch,
   employeesData,
+  employeesDataFiltered,
   employeeDataToDelete
 ) {
-  const dataUpdated = employeesData.filter(
+  const dataUpdated = [...employeesData].filter(
     (obj) => obj !== employeeDataToDelete
   );
 
-  dispatch(deleteEmployee(dataUpdated));
+  const dataFilteredUpdated = [...employeesDataFiltered].filter(
+    (obj) => obj !== employeeDataToDelete
+  );
+  // let dataUpdated = [];
+  // [...employeesData].forEach((data) => {
+  //   if (data !== employeeDataToDelete) {
+  //     dataUpdated.push(data);
+  //   }
+  // });
+
+  dispatch(
+    deleteEmployee({
+      dataUpdated: dataUpdated,
+      dataFilteredUpdated: dataFilteredUpdated,
+    })
+  );
 }

@@ -8,7 +8,7 @@ const ListTableNav = () => {
 
   // Change page number depending on array data length
   function navToNextTable() {
-    console.log(dataFiltered.length);
+    console.log();
     if (stateTablePage < parseInt((dataFiltered.length - 1) / 10, 10)) {
       setTablePage(stateTablePage + 1);
     }
@@ -20,16 +20,39 @@ const ListTableNav = () => {
       setTablePage(stateTablePage - 1);
     }
   }
+
   return (
     <div className="listTable-nav">
       <button
         className={stateTablePage === 0 ? "nav-arrow--disabled" : "nav-arrow"}
         onClick={() => navToPreviousTable()}
       >
-        Previous
+        {stateTablePage === 0
+          ? "<"
+          : "< " +
+            stateTablePage +
+            "/" +
+            parseInt((dataFiltered.length - 1) / 10 + 1)}
       </button>
 
-      <p>{stateTablePage + 1}</p>
+      <p>
+        {parseInt(stateTablePage * 10) !== dataFiltered.length
+          ? (stateTablePage + 1) * 10 > dataFiltered.length
+            ? parseInt(stateTablePage * 10 + 1) +
+              " - " +
+              parseInt(dataFiltered.length) +
+              " of " +
+              parseInt(dataFiltered.length) +
+              " entries"
+            : parseInt(stateTablePage * 10 + 1) +
+              " - " +
+              (stateTablePage + 1) * 10 +
+              " of " +
+              parseInt(dataFiltered.length) +
+              " entries"
+          : ""}
+      </p>
+
       <button
         className={
           stateTablePage >= parseInt((dataFiltered.length - 1) / 10, 10)
@@ -38,7 +61,13 @@ const ListTableNav = () => {
         }
         onClick={() => navToNextTable()}
       >
-        Next
+        {stateTablePage >= parseInt((dataFiltered.length - 1) / 10, 10)
+          ? ">"
+          : stateTablePage +
+            2 +
+            "/" +
+            parseInt((dataFiltered.length - 1) / 10 + 1) +
+            " >"}
       </button>
     </div>
   );

@@ -30,7 +30,7 @@ const EmployeesList = () => {
   }
 
   function deleteOneEmployee(item) {
-    actionDeleteEmployee(dispatch, employeesList, item);
+    actionDeleteEmployee(dispatch, employeesList, listFiltered, item);
   }
 
   function filterDataOnSearch(arrayWordsSearched) {

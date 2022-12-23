@@ -27,8 +27,8 @@ export const employeesSlice = createSlice({
       state.listFiltered = [...state.employeesList];
     },
     deleteEmployee: (state, action) => {
-      state.employeesList = action.payload;
-      state.listFiltered = [...state.employeesList];
+      state.employeesList = action.payload.dataUpdated;
+      state.listFiltered = action.payload.dataFilteredUpdated;
     },
     filterEmployeeList: (state, action) => {
       state.listFiltered = action.payload;

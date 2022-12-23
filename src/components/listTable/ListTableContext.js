@@ -36,7 +36,7 @@ ListTableContext.propTypes = {
   tableHeadLabels: PropTypes.array,
   tableBodyLabels: PropTypes.array,
   numberSearchOnActive: PropTypes.number,
-  formatDate: PropTypes.string,
+  formatDate: PropTypes.func,
   actionSortAscending: PropTypes.func,
   actionSortDescending: PropTypes.func,
   actionDeleteListItem: PropTypes.func,

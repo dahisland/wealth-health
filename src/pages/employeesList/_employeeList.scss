@@ -24,7 +24,11 @@
     color: map-get($colors, ice);
   }
 }
-
+.listTable-nav {
+  p {
+    color: map-get($colors, lightLeaf);
+  }
+}
 .nav-arrow {
   background-color: map-get($colors, lightLeaf);
   color: map-get($colors, ice);
