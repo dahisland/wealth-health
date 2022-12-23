@@ -42,8 +42,8 @@ const InputDatepicker = (props) => {
             onChange={onChange}
             onBlur={onBlur}
             selected={value}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="dd/mm/yyyy"
+            dateFormat="MM/dd/yyyy"
+            placeholderText="mm/dd/yyyy"
             strictParsing
             isClearable
             todayButton="Today"

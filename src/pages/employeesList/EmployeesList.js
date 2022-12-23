@@ -1,15 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Footer from "../../components/footer/Footer";
 import MainNav from "../../components/mainNav/MainNav";
 import { useSelector, useDispatch } from "react-redux";
-import { mockData } from "../../data/mockData";
 import { tableHeadLabels, tableBodyLabels } from "../../data/tableData";
 import ListTableContext from "../../components/listTable/ListTableContext";
 import ListTableHeader from "../../components/listTable/ListTableHeader";
 import ListTableSearch from "../../components/listTable/ListTableSearch";
 import ListTableBody from "../../components/listTable/ListTableBody";
 import ListTableNav from "../../components/listTable/ListTableNav";
-import { actionGetEmployeeList } from "../../app/actions/getEmployeeList.action";
 import { actionDeleteEmployee } from "../../app/actions/deleteEmployee.action";
 import { actionFilterEmployeeList } from "../../app/actions/filterEmployeeList.action";
 import {
@@ -22,10 +20,6 @@ const EmployeesList = () => {
     (state) => state.employees
   );
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   actionGetEmployeeList(dispatch, mockData);
-  // }, [mockData]);
 
   function sortAscending(itemData) {
     actionSortAscending(dispatch, listFiltered, itemData);
@@ -47,6 +41,14 @@ const EmployeesList = () => {
     actionFilterEmployeeList(dispatch, [""], employeesList);
   }
 
+  function formatDate(date) {
+    const arrayDate = date.toLocaleDateString("en-US").split("/");
+    const arrayDateFormatted = arrayDate.map((item) =>
+      item < 10 ? "0" + item : item
+    );
+    return `${arrayDateFormatted[0]}/${arrayDateFormatted[1]}/${arrayDateFormatted[2]}`;
+  }
+
   return (
     <div className="currentPage">
       <MainNav />
@@ -57,6 +59,7 @@ const EmployeesList = () => {
           dataFiltered={listFiltered}
           contentDeleteEntry="Delete this entry"
           contentSearchNotFound="No data employee has been found"
+          formatDate={formatDate}
           // props to filter data with searchbar
           numberSearchOnActive={2}
           actionOnSearchActive={filterDataOnSearch}

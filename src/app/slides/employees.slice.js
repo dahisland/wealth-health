@@ -1,11 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { modelNewEmployeeData } from "../../data/modelNewEmployeeData";
+import { mockData } from "../../data/mockData";
+
+// Initial data used until backend is implemented
+// After, it will be replaced by calls api in a useEffect and initState will be an empty array
+const initialData = mockData.map(
+  (item) => (item = new modelNewEmployeeData(item).formatForDisplay())
+);
 
 /**
  * Redux slice containing reducers for employees list
  */
 export const employeesSlice = createSlice({
   name: "employees",
-  initialState: { employeesList: [], listFiltered: [] },
+  initialState: {
+    employeesList: initialData,
+    listFiltered: initialData,
+  },
   reducers: {
     getEmployeeList: (state, action) => {
       state.employeesList = [...state.employeesList].concat(action.payload);

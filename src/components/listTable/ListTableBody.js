@@ -8,6 +8,7 @@ const ListTableBody = () => {
   const { tableBodyLabels } = useContext(tableListContext);
   const { contentDeleteEntry } = useContext(tableListContext);
   const { contentSearchNotFound } = useContext(tableListContext);
+  const { formatDate } = useContext(tableListContext);
 
   // Function to filter data displayed by page.
   // Max 10 data elements are displayed
@@ -41,7 +42,7 @@ const ListTableBody = () => {
                   ) : null}
                   <span className="bodyRowContent-value">
                     {typeof keyValue[1] === "number"
-                      ? new Date(keyValue[1]).toLocaleDateString("fr")
+                      ? formatDate(new Date(keyValue[1]))
                       : keyValue[1]}
                   </span>
                 </p>
