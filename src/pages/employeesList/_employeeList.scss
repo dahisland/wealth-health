@@ -4,6 +4,12 @@
   color: map-get($colors, lightLeaf);
 }
 // Style custom for plugin tableList
+.list-table {
+  @include responsivePhones {
+    width: 92%;
+  }
+}
+
 .listTable-search {
   input {
     color: map-get($colors, darkLeaf);
@@ -77,6 +83,7 @@
 
   .bodyRowContent-label {
     font-style: italic;
+    color: map-get($colors, lightLeaf);
     color: map-get($colors, lightLeaf);
   }
 

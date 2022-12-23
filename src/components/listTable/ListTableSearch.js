@@ -43,7 +43,7 @@ const ListTableSearch = () => {
       <input
         type="search"
         onInput={(e) => filterDataBySearch(e)}
-        placeholder="Search (min 2 characters)"
+        placeholder={"Search (min " + numberSearchOnActive + " characters)"}
       />
     </div>
   );

@@ -8,7 +8,8 @@ const Homepage = () => {
     <div className="currentPage">
       <MainNav />
       <main className="homepage_main">
-        <h1>Human Resources support to optimize your business management</h1>
+        <h1>- HRnet -</h1>
+        <h2>Human Resources support to optimize your business management</h2>
         <img src={logo} alt="logo" width="192px" height="192px" />
       </main>
       <Footer />
