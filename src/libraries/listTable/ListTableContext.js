@@ -5,12 +5,16 @@ export const tableListContext = createContext();
 
 const ListTableContext = (props) => {
   const [tablePage, setTablePage] = useState(0);
+  const [numberDataDisplayed, setNumberDataDisplayed] = useState(10);
+
   return (
     <tableListContext.Provider
       value={{
         dataFiltered: props.dataFiltered,
         stateTablePage: tablePage,
         setTablePage: setTablePage,
+        numberDataDisplayed: numberDataDisplayed,
+        setNumberDataDisplayed: setNumberDataDisplayed,
         numberSearchOnActive: props.numberSearchOnActive,
         formatDate: props.formatDate,
         tableHeadLabels: props.tableHeadLabels,

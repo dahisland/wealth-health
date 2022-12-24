@@ -10,6 +10,7 @@ import ListTableHeader from "../../libraries/listTable/ListTableHeader";
 import ListTableSearch from "../../libraries/listTable/ListTableSearch";
 import ListTableBody from "../../libraries/listTable/ListTableBody";
 import ListTableNav from "../../libraries/listTable/ListTableNav";
+import ListTableShowSelect from "../../libraries/listTable/ListTableShowSelect";
 import { actionDeleteEmployee } from "../../app/actions/deleteEmployee.action";
 import { actionFilterEmployeeList } from "../../app/actions/filterEmployeeList.action";
 import {
@@ -81,6 +82,7 @@ const EmployeesList = () => {
           actionHeadLabelRightIcon={sortDescending}
         >
           <ListTableSearch />
+          <ListTableShowSelect />
           <ListTableHeader />
           <ListTableNav />
           <ListTableBody />

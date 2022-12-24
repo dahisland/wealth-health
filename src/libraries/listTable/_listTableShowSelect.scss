@@ -1,0 +1,10 @@
+.listTable-show {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 20px;
+  label {
+    width: fit-content;
+    padding: 0px;
+  }
+}

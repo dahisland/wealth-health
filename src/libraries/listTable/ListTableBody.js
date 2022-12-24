@@ -9,17 +9,17 @@ const ListTableBody = () => {
   const { contentDeleteEntry } = useContext(tableListContext);
   const { contentSearchNotFound } = useContext(tableListContext);
   const { formatDate } = useContext(tableListContext);
+  const { numberDataDisplayed } = useContext(tableListContext);
 
   // Function to filter data displayed by page.
   // Max 10 data elements are displayed
   // Depend on useState() "table Page", who set page number depending on array data length
   function getDataDisplayedByPage() {
-    const minIndex = stateTablePage * 10 - 1;
-    const maxIndex = (stateTablePage + 1) * 10;
     return dataFiltered.filter(
       (item) =>
-        minIndex < dataFiltered.indexOf(item) &&
-        dataFiltered.indexOf(item) < maxIndex
+        numberDataDisplayed * (stateTablePage + 1) - numberDataDisplayed <=
+          dataFiltered.indexOf(item) &&
+        dataFiltered.indexOf(item) < numberDataDisplayed * (stateTablePage + 1)
     );
   }
 

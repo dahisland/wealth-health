@@ -25,6 +25,23 @@
   }
 }
 
+.listTable-show {
+  label,
+  select {
+    color: map-get($colors, lightLeaf);
+  }
+  select {
+    border: 2px solid map-get($colors, lightLeaf);
+    border-radius: 4px;
+    padding: 1px 5px;
+    &:focus {
+      border: 2px solid map-get($colors, lightLeaf);
+      outline: 1px solid map-get($colors, lightLeaf);
+    }
+  }
+  color: map-get($colors, lightLeaf);
+}
+
 .listTable-headRow {
   @include responsiveTabloids {
     justify-content: space-between;
