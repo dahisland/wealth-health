@@ -3,6 +3,8 @@ import Footer from "../../components/footer/Footer";
 import MainNav from "../../components/mainNav/MainNav";
 import { useSelector, useDispatch } from "react-redux";
 import { tableHeadLabels, tableBodyLabels } from "../../data/tableData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import ListTableContext from "../../components/listTable/ListTableContext";
 import ListTableHeader from "../../components/listTable/ListTableHeader";
 import ListTableSearch from "../../components/listTable/ListTableSearch";
@@ -60,17 +62,23 @@ const EmployeesList = () => {
           contentDeleteEntry="Delete this entry"
           contentSearchNotFound="No data employee has been found"
           formatDate={formatDate}
+          tableBodyLabels={tableBodyLabels}
           // props to filter data with searchbar
           numberSearchOnActive={2}
           actionOnSearchActive={filterDataOnSearch}
           actionOnSearchInactive={noFilterDataOnSearch}
           // props to delete an item list
           actionDeleteListItem={deleteOneEmployee}
-          // props for sorts header
+          // props for table head
           tableHeadLabels={tableHeadLabels}
-          tableBodyLabels={tableBodyLabels}
-          actionSortAscending={sortAscending}
-          actionSortDescending={sortDescending}
+          tableHeadLabelLeftIcon={
+            <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
+          }
+          actionHeadLabelLeftIcon={sortAscending}
+          tableHeadLabelRightIcon={
+            <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+          }
+          actionHeadLabelRightIcon={sortDescending}
         >
           <ListTableSearch />
           <ListTableHeader />
