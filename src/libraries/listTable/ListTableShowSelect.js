@@ -4,6 +4,7 @@ import { tableListContext } from "./ListTableContext";
 const ListTableShowSelect = () => {
   const { setNumberDataDisplayed } = useContext(tableListContext);
   const { setTablePage } = useContext(tableListContext);
+  const { tableShowValues } = useContext(tableListContext);
 
   function selectShowNumber(e) {
     setTablePage(0);
@@ -12,12 +13,11 @@ const ListTableShowSelect = () => {
 
   return (
     <div className="listTable-show">
-      <label htmlFor="show-entries">Show :</label>
-      <select id="show-entries" onChange={(e) => selectShowNumber(e)}>
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
+      <label htmlFor="listTableShow-entries">Show :</label>
+      <select id="listTableShow-entries" onChange={(e) => selectShowNumber(e)}>
+        {tableShowValues.map((value) => (
+          <option value={value}>{value}</option>
+        ))}
       </select>
       <p>entries</p>
     </div>

@@ -19,6 +19,7 @@ const ListTableContext = (props) => {
         formatDate: props.formatDate,
         tableHeadLabels: props.tableHeadLabels,
         tableBodyLabels: props.tableBodyLabels,
+        tableShowValues: props.tableShowValues,
         tableHeadLabelLeftIcon: props.tableHeadLabelLeftIcon,
         tableHeadLabelRightIcon: props.tableHeadLabelRightIcon,
         actionHeadLabelLeftIcon: props.actionHeadLabelLeftIcon,

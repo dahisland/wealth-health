@@ -24,6 +24,8 @@ const EmployeesList = () => {
   );
   const dispatch = useDispatch();
 
+  const tableShowValues = [10, 25, 50, 100];
+
   function sortAscending(itemData) {
     actionSortAscending(dispatch, listFiltered, itemData);
   }
@@ -64,6 +66,8 @@ const EmployeesList = () => {
           contentSearchNotFound="No data employee has been found"
           formatDate={formatDate}
           tableBodyLabels={tableBodyLabels}
+          // props for options table show
+          tableShowValues={tableShowValues}
           // props to filter data with searchbar
           numberSearchOnActive={2}
           actionOnSearchActive={filterDataOnSearch}
