@@ -15,8 +15,10 @@ const ListTableShowSelect = () => {
     <div className="listTable-show">
       <label htmlFor="listTableShow-entries">Show :</label>
       <select id="listTableShow-entries" onChange={(e) => selectShowNumber(e)}>
-        {tableShowValues.map((value) => (
-          <option value={value}>{value}</option>
+        {tableShowValues.map((value, index) => (
+          <option key={"showValue-" + value + index} value={value}>
+            {value}
+          </option>
         ))}
       </select>
       <p>entries</p>
