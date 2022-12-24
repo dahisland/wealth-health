@@ -39,7 +39,7 @@ const ListTableNav = () => {
       </button>
 
       <p>
-        {dataFiltered.length !== numberDataDisplayed * stateTablePage
+        {dataFiltered.length > numberDataDisplayed * stateTablePage
           ? parseInt(dataFiltered.length) >
             parseInt(stateTablePage * numberDataDisplayed + numberDataDisplayed)
             ? parseInt(stateTablePage * numberDataDisplayed + 1) +
