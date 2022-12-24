@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { tableHeadLabels, tableBodyLabels } from "../../data/tableData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import ListTableContext from "../../components/listTable/ListTableContext";
-import ListTableHeader from "../../components/listTable/ListTableHeader";
-import ListTableSearch from "../../components/listTable/ListTableSearch";
-import ListTableBody from "../../components/listTable/ListTableBody";
-import ListTableNav from "../../components/listTable/ListTableNav";
+import ListTableContext from "../../libraries/listTable/ListTableContext";
+import ListTableHeader from "../../libraries/listTable/ListTableHeader";
+import ListTableSearch from "../../libraries/listTable/ListTableSearch";
+import ListTableBody from "../../libraries/listTable/ListTableBody";
+import ListTableNav from "../../libraries/listTable/ListTableNav";
 import { actionDeleteEmployee } from "../../app/actions/deleteEmployee.action";
 import { actionFilterEmployeeList } from "../../app/actions/filterEmployeeList.action";
 import {

@@ -1,0 +1,43 @@
+@import "../../style/utils";
+
+// Custom style for plugin fullscreen-modale
+.modale-global-container {
+  overscroll-behavior-y: contain;
+}
+
+#modale-inner-container--customize {
+  width: 350px;
+  background-color: map-get($colors, lightLeaf);
+  color: map-get($colors, ice);
+  outline: 4px solid map-get($colors, ice);
+
+  @include responsivePhones {
+    width: 85%;
+  }
+}
+
+.modale-header {
+  opacity: 0.7;
+  .modale-title {
+    color: map-get($colors, ice);
+    font-size: 1.5rem;
+  }
+  #modale-icon--customize {
+    background-color: map-get($colors, ice);
+    color: map-get($colors, darkLeaf);
+    width: 17px;
+    height: 17px;
+    line-height: 17px;
+    padding: 0;
+    font-weight: 700;
+    border-radius: 50%;
+  }
+}
+
+.modale-content {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  p {
+    color: map-get($colors, darkLeaf);
+  }
+}

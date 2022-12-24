@@ -1,0 +1,46 @@
+@import "../../style/utils";
+
+// Custom style for plugin scrollingSelect
+
+.scrollingSelect-container {
+  @include responsiveTabloids {
+    flex-direction: column;
+    margin: 0;
+  }
+  .scrollingSelect-scrollingMenu {
+    @include fontFamily;
+    border: 2px solid map-get($colors, darkLeaf);
+    font-size: map-get($sizes, base);
+    font-weight: 700;
+    color: map-get($colors, darkLeaf);
+    background-color: map-get($colors, ice);
+    &:focus {
+      border: 1px solid map-get($colors, darkLeaf);
+      outline: 3px solid map-get($colors, darkLeaf);
+    }
+    @include responsiveTabloids {
+      width: 100%;
+    }
+  }
+  label {
+    color: map-get($colors, darkLeaf);
+    @include responsiveTabloids {
+      text-align: center;
+      padding: 0.5rem;
+    }
+  }
+}
+
+.scrollingSelect-defaultOption {
+  color: map-get($colors, lightLeaf);
+}
+
+.scrollingSelect-errorMessage {
+  font-size: map-get($sizes, xs);
+  color: map-get($colors, blood);
+  @include responsiveTabloids {
+    width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+  }
+}

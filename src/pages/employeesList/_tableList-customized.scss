@@ -1,0 +1,138 @@
+@import "../../style/utils";
+
+// Style custom for plugin tableList
+.list-table {
+  @include responsivePhones {
+    width: 86%;
+    margin-top: 2rem;
+  }
+}
+
+.listTable-search {
+  input {
+    color: map-get($colors, darkLeaf);
+    border: 1px solid map-get($colors, lightLeaf);
+    outline: 1px solid map-get($colors, lightLeaf);
+    &:focus {
+      outline: 2px solid map-get($colors, lightLeaf);
+    }
+    &::placeholder {
+      color: darken(map-get($colors, darkMouse), 10%);
+    }
+    @include responsiveTabloids {
+      width: 100%;
+    }
+  }
+}
+
+.listTable-headRow {
+  @include responsiveTabloids {
+    justify-content: space-between;
+    gap: initial;
+  }
+  .headRow-data {
+    background-color: map-get($colors, darkLeaf);
+    color: map-get($colors, ice);
+    @include responsiveTabloids {
+      width: 46%;
+    }
+    @include responsivePhones {
+      width: 48%;
+      font-size: 0.7rem;
+    }
+  }
+}
+.listTable-nav {
+  p {
+    color: map-get($colors, lightLeaf);
+  }
+}
+.nav-arrow {
+  background-color: map-get($colors, lightLeaf);
+  color: map-get($colors, ice);
+  &:hover {
+    background-color: map-get($colors, darkLeaf);
+    box-shadow: inset 0px 0px 10px 0px map-get($colors, whiteGreen);
+  }
+  @include responsiveTabloids {
+    width: 75px;
+    padding: 0.5rem 0.7rem;
+  }
+}
+.nav-arrow--disabled {
+  background-color: lighten(map-get($colors, lightMouse), 8%);
+  color: map-get($colors, darkMouse);
+  @include responsiveTabloids {
+    width: 75px;
+    padding: 0.5rem 0.7rem;
+  }
+}
+
+.listTable-bodyRow {
+  color: map-get($colors, darkLeaf);
+  background-color: map-get($colors, lightLeaf);
+  @include responsivePhones {
+    flex-direction: column;
+  }
+
+  .bodyRow-content {
+    background-color: lighten(map-get($colors, whiteGreen), 8%);
+    width: 50%;
+    border: 1px dotted map-get($colors, lightLeaf);
+    &:nth-child(1),
+    &:nth-child(2) {
+      background-color: map-get($colors, lightLeaf);
+      @include responsivePhones {
+        width: 100%;
+      }
+      span {
+        width: 50%;
+        color: map-get($colors, ice);
+      }
+      span:nth-child(2) {
+        font-size: 1.2rem;
+        @include responsivePhones {
+          text-align: right;
+        }
+      }
+    }
+    @include responsiveTabloids {
+      padding: 0.3rem 0.7rem;
+    }
+    @include responsivePhones {
+      width: 100%;
+      padding: 0.2rem 0.6rem;
+    }
+  }
+
+  .bodyRowContent-label {
+    font-style: italic;
+    color: map-get($colors, lightLeaf);
+    color: map-get($colors, lightLeaf);
+    @include responsivePhones {
+      width: 40%;
+      text-align: left;
+    }
+  }
+
+  .bodyRowContent-value {
+    color: map-get($colors, darkLeaf);
+    @include responsivePhones {
+      width: 60%;
+      text-align: right;
+    }
+  }
+
+  .bodyRowContent--delete {
+    background-color: map-get($colors, lightMouse);
+    color: lighten(map-get($colors, darkLeaf), 10%);
+    &:hover {
+      background-color: map-get($colors, darkMouse);
+      color: map-get($colors, ice);
+    }
+    @include responsivePhones {
+      align-items: flex-start;
+      padding-left: 0.6rem;
+    }
+  }
+}

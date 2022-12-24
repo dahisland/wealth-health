@@ -1,28 +1,18 @@
-@import "./scrollingSelect-utils";
-
 .scrollingSelect-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 0.5rem;
-  @include responsiveTabloids {
-    flex-direction: column;
-    margin: 0;
-  }
   .scrollingSelect-scrollingMenu {
     width: 280px;
     height: 40px;
     border: 2px solid grey;
     border-radius: 5px;
-    @include fontFamily;
     font-size: 1rem;
     font-weight: 700;
     color: grey;
     text-align: center;
     background-color: white;
-    @include responsiveTabloids {
-      width: 100%;
-    }
     &:focus {
       border: 1px solid grey;
       outline: 3px solid grey;
@@ -39,10 +29,6 @@
     padding: 1rem;
     text-align: left;
     color: grey;
-    @include responsiveTabloids {
-      text-align: center;
-      padding: 0.5rem;
-    }
   }
 }
 
@@ -60,7 +46,4 @@
   font-size: 0.8rem;
   text-align: left;
   color: red;
-  @include responsiveTabloids {
-    padding: 0.5rem;
-  }
 }

@@ -1,14 +1,8 @@
-@import "./listTable-utils";
-
 // Grid
 .list-table {
   width: 80%;
   margin: 0 auto;
   margin-top: 3rem;
-  @include responsivePhones {
-    width: 86%;
-    margin-top: 2rem;
-  }
 }
 .listTable-wrapper {
   display: grid;

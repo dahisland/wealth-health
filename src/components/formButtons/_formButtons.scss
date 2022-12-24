@@ -19,7 +19,7 @@
     font-size: map-get($sizes, base);
     &:hover {
       background: map-get($colors, whiteGreen);
-      color: map-get($colors, logoBlue);
+      color: map-get($colors, darkLeaf);
       box-shadow: 1px 1px 4px map-get($colors, darkLeaf);
     }
   }

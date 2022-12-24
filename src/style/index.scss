@@ -1,19 +1,34 @@
 @import "./default";
 
+// STYLE FOR COMPONENTS
 @import "../components/mainNav/mainNav";
 @import "../components/footer/footer";
-
 @import "../components/inputItem/inputItem";
-@import "../components/inputDatepicker/inputDatepicker";
 @import "../components/formButtons/formButtons";
-@import "../components/scrollingSelect/scrollingSelect";
 
-@import "../components/listTable/listTable";
-@import "../components/listTable/listTableSearch";
-@import "../components/listTable/listTableHeader";
-@import "../components/listTable/listTableBody";
-@import "../components/listTable/listTableNav";
+// INITIAL STYLE FOR PLUGIN SCROLLING SELECT
+@import "../libraries/scrollingSelect/scrollingSelect";
 
+// INITIAL STYLE FOR PLUGIN LIST TABLE
+@import "../libraries/listTable/listTable";
+@import "../libraries/listTable/listTableSearch";
+@import "../libraries/listTable/listTableHeader";
+@import "../libraries/listTable/listTableBody";
+@import "../libraries/listTable/listTableNav";
+
+// STYLE FOR PAGE HOMEPAGE
 @import "../pages/homepage/homepage";
+
+// STYLE FOR PAGE CREATE EMPLOYEE
 @import "../pages/createEmployee/createEmployee";
+// Customized style for plugin datepicker
+@import "../pages/createEmployee/inputDatepicker-customized";
+// Customized style for plugin scrolling select
+@import "../pages/createEmployee/scrollingSelect-customized";
+// Customized style for plugin fullscreen modale
+@import "../pages/createEmployee/fullscreenModale-customized";
+
+// STYLE FOR PAGE EMPLOYEES LIST
 @import "../pages/employeesList/employeeList";
+// Customized style for plugin table list
+@import "../pages/employeesList/tableList-customized";

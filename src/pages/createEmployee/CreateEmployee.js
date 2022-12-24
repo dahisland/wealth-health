@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { actionAddEmployee } from "../../app/actions/addEmployee.action";
 import { useDispatch } from "react-redux";
+
+import { ModaleFullscreen } from "modale-fullscreen-customizable";
+
 import MainNav from "../../components/mainNav/MainNav";
 import Footer from "../../components/footer/Footer";
 import { identityForm, addressForm, departmentForm } from "../../data/formData";
 import { modelNewEmployeeData } from "../../data/modelNewEmployeeData";
-import ScrollingSelect from "../../components/scrollingSelect/ScrollingSelect";
-import InputDatepicker from "../../components/inputDatepicker/InputDatepicker";
+import ScrollingSelect from "../../libraries/scrollingSelect/ScrollingSelect";
+import InputDatepicker from "../../libraries/inputDatepicker/InputDatepicker";
 import InputItem from "../../components/inputItem/InputItem";
 import FormButtons from "../../components/formButtons/FormButtons";
-import { ModaleFullscreen } from "modale-fullscreen-customizable";
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
@@ -138,7 +140,8 @@ const CreateEmployee = () => {
           eventOnClickIcon={() => setModaleIsOpened(false)}
           idInnerContainer={"modale-inner-container--customize"}
           idModaleIcon={"modale-icon--customize"}
-          modaleContent={<p>Employee successfully created !</p>}
+          modaleTitle={"SUCCESS !"}
+          modaleContent={<p>A new employee has been created.</p>}
         />
       ) : null}
     </div>

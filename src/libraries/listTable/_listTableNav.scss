@@ -1,5 +1,3 @@
-@import "./listTable-utils";
-
 .listTable-nav {
   width: 100%;
   margin: 0 auto;
@@ -18,15 +16,12 @@
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  @include responsiveTabloids {
-    width: 75px;
-    padding: 0.5rem 0.7rem;
-  }
   &:hover {
     background-color: lighten(mediumpurple, 15%);
     font-size: 0.9rem;
   }
 }
+
 .nav-arrow--disabled {
   cursor: default;
   width: 120px;
@@ -38,8 +33,4 @@
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  @include responsiveTabloids {
-    width: 75px;
-    padding: 0.5rem 0.7rem;
-  }
 }

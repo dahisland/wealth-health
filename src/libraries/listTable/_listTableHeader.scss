@@ -1,15 +1,9 @@
-@import "./listTable-utils";
-
 .listTable-headRow {
   display: flex;
   flex-wrap: wrap;
   gap: 2.5%;
   justify-content: flex-start;
   align-items: center;
-  @include responsiveTabloids {
-    justify-content: space-between;
-    gap: initial;
-  }
   .headRow-data {
     display: flex;
     font-size: 0.8rem;
@@ -23,13 +17,6 @@
     background-color: lighten(grey, 30%);
     color: white;
     border-radius: 5px;
-    @include responsiveTabloids {
-      width: 46%;
-    }
-    @include responsivePhones {
-      width: 48%;
-      font-size: 0.7rem;
-    }
   }
   .headRow-iconsSort {
     cursor: pointer;
