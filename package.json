@@ -1,7 +1,7 @@
 {
   "name": "hrnet-react-frontend",
   "version": "0.1.0",
-  "homepage": "https://dahisland.github.io/MyriamMornet_14_122022",
+  "homepage": "https://dahisland.github.io/wealth-health",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",

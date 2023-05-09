@@ -56,3 +56,7 @@ Local url by default is : http://localhost:3000/ .
 
 No API backend is available yet.
 To store data in the Redux store, you can manually complete the "Create employee" form or you can charge mock data by decomment the useEffect from the page component "Employee list". It will store mock data in the Redux store.
+
+## GIT PAGES
+
+A version is available on https://dahisland.github.io/wealth-health .
