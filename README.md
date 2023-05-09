@@ -46,7 +46,7 @@ I developped my own library for one of them, published on official website [NPM]
 
 ### \* Run the project
 
-- Fork this repository : https://github.com/dahisland/MyriamMornet_14_122022 to your Github account.
+- Fork this repository : https://github.com/dahisland/wealth-health to your Github account.
 - Clone it to the local folder's project of your choice in your computer.
 - Open the folder in your favorite framework editor.
 - Use the `npm install` command to install dependencies.
