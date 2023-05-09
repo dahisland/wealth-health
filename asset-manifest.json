@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/wealth-health/static/css/main.c948d7db.css",
+    "main.js": "/wealth-health/static/js/main.5e3a59df.js",
+    "static/js/787.7ba79c38.chunk.js": "/wealth-health/static/js/787.7ba79c38.chunk.js",
+    "static/media/favicon.png": "/wealth-health/static/media/favicon.27745ab0f059fe454734.png",
+    "static/media/logo-wealth-health-transparent.png": "/wealth-health/static/media/logo-wealth-health-transparent.f1cf14d80ad383341fe9.png",
+    "index.html": "/wealth-health/index.html",
+    "main.c948d7db.css.map": "/wealth-health/static/css/main.c948d7db.css.map",
+    "main.5e3a59df.js.map": "/wealth-health/static/js/main.5e3a59df.js.map",
+    "787.7ba79c38.chunk.js.map": "/wealth-health/static/js/787.7ba79c38.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c948d7db.css",
+    "static/js/main.5e3a59df.js"
+  ]
+}
